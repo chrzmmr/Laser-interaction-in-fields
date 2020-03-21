@@ -1,8 +1,7 @@
 # Laser-interaction-in-fields
 Rate equations simulation of particles in fields
 
-
-C++ Laser Cooling code described in PHYSICAL REVIEW A 89, 043410 (2014)
+All details are found in the USER GUIDE. Here is simply the most relevant part:
 
 The program solves the rate equations to study laser excitation, forces (scattering + dipolar + magnetic + electric + coulombian
 interactions). 
