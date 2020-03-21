@@ -1,7 +1,7 @@
 # Laser-interaction-in-fields
 Rate equations simulation of particles in fields
 
-All details are found in the USER GUIDE. Here is simply the most relevant part:
+All details are found in the USER GUIDE. Here is simply the most relevant part. Modifications (new versions) are in Modif_code.txt
 
 The program solves the rate equations to study laser excitation, forces (scattering + dipolar + magnetic + electric + coulombian
 interactions). 
