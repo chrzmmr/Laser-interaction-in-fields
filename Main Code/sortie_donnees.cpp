@@ -1,6 +1,6 @@
 /*
-  Fichier de sortie des données moléculaires: transition, probablilitées ...
-  */
+ Fichier de sortie des données moléculaires: transition, probablilitées ...
+*/
 
 #include "sortie_donnees.h"
 
@@ -159,18 +159,16 @@ void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Intern
 //        file_out  << Mol[i].get_pos().z() << " ";
 //        file_out  << vz_init << " ";
 //        file_out  << Mol[i].get_vel().z() << " ";
-//        file_out  << Mol[i].get_pos() << " ";
-        //    file_out  << Mol[i].get_vel() << " ";
-//         file_out  << Euler_angles(Mol[i].get_vel()) << " ";
-//        file_out  << (Mol[i].get_vel().z()-vz_init)/t/1000. << " "; // a=v/t et acc 1e3 m.s^-2
-//        file_out  << 2. * (Mol[i].get_pos().z()-vz_init*t-z_init)/(t*t)/1000. << " "; // dx = v T + 1/2 a T^2
-//        file_out  << Mol[i].two_M  << " ";
-//        file_out  << t << " ";
-//        file_out << endl;
+        file_out << t << " ";
+        file_out  << Mol[i].get_pos() << " ";
+        file_out  << Mol[i].get_vel() << " ";
+        file_out  << Mol[i].deg_number << " ";
+        file_out << endl;
 
 
         /*****   CALCUL of parameters for the dipoles or diagonalization *******/
 
+        /****
         MatrixXd d[3] ;
         SelfAdjointEigenSolver<MatrixXd> es; // eigenstates and eigenvalues
         double v = Mol[i].get_vel().mag();
@@ -191,13 +189,17 @@ void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Intern
             }
             file_out << B << " " << v << " " << i << " " << j << " " << abs(round(10.*param))/10. << endl;
         }
+             *****/
+
     }
+
+
+
     /******  The new dipole are given by d[polar] = evec^dag.d0[polar].evec that is
     d[n_polar+1] =  (es.eigenvectors().adjoint())*d0[n_polar+1]*(es.eigenvectors());
     With d0[q+1]_ij = 0_<i | d^(q) | j>_0
     d[q+1]_ij = <i | d^(q) | j> = sum_|j>_O    <i| d^(q) |j>_0   0_<j | j>
     ********/
-
 
 
 
@@ -228,6 +230,9 @@ void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Intern
 //    cout << endl;
 
     /**  Stat for specific states of "best" molecules in the sens of position  **/
+
+    /****
+
     vector <Molecule> liste_Adresses_Mol; //List of Molecule of this type
     //  double size_limite = params.LocateParam("size_x[0]")->val;
     double size_limite = 0.02;
@@ -248,13 +253,13 @@ void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Intern
     // file_out  << stat_Mol.sigma_pos.mag() << " ";
     // file_out << (stat_Mol.E_pot+stat_Mol.E_cin)/kB/mK/1.5/nb_mol << "  ";
     file_out << stat_Mol.E_cin/kB/mK/1.5/nb_mol << "  ";
-
     // cout << " N " <<  nb_Mol_in_this_state <<  " T " << stat_Mol.E_cin/kB/mK/1.5/nb_mol << endl;
-
     liste_Adresses_Mol.clear(); // erase the vector:
 
-    file_out << endl;
+    ***/
 
+
+    // file_out << endl;
     return;
 }
 
@@ -394,7 +399,7 @@ void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <In
     int nb_rate = rate.size();
     for (int i = 0; i < nb_rate; i++)
     {
-       // file_rate  << " " << i;
+        // file_rate  << " " << i;
         file_rate  << " " << rate[i];
         int n_mol= reaction_list[i].n_mol;
         int n_laser = reaction_list[i].n_laser;
@@ -419,7 +424,7 @@ void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <In
 //        double Energy_in = Internal_state_in.Energy_cm;
 //
 //        double Energy_in = Internal_state_in.Energy0_cm + (Internal_state_in.Energy_Shift_B_cm(B) + Internal_state_in.Energy_Shift_E_cm(E));
-       Internal_state Internal_state_out = reaction_list[i].final_internal_state ; //  état interne de la molecule après la réaction
+        Internal_state Internal_state_out = reaction_list[i].final_internal_state ; //  état interne de la molecule après la réaction
 //        double Energy_out = Internal_state_out.Energy_cm;
 //
 //
