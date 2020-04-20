@@ -16,10 +16,10 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // so Mol[0] to Mol[Nom_Mol[0]-1]
 @Nom_Mol[0]	Ps
 // It is the number of molecules that are laser cooled.
-@N_Mol[0]  10
-@Temp_ini_x[0] 0.001
-@Temp_ini_y[0] 0.001
-@Temp_ini_z[0] 50
+@N_Mol[0]  20
+@Temp_ini_x[0] 100
+@Temp_ini_y[0] 100
+@Temp_ini_z[0] 100
 
 
 // Choix en position: taille fixe (sigma_pos) ou à partir de la densité
@@ -36,7 +36,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @Procedure_init_y[0]   0
 @Procedure_init_z[0]   0
 // Taille (x,y,z) si on choisit taille fixe
-@size_x[0]  2e-3
+@size_x[0]  0.1e-3
 @size_y[0]	2e-3
 @size_z[0]  2e-3
 // Initial position added to the random one
@@ -44,7 +44,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @offset_y[0]	0
 @offset_z[0]	0
 // Initial velocity added to the random one
-@v0_x[0]	0
+@v0_x[0]	1e5
 @v0_y[0]	0.
 @v0_z[0]    0.
 #
@@ -74,24 +74,25 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // For control parameter to determine the dynamical time step size in second  to check convergence
 // typical is 0.001*waist/velocity (or 0.001*lambda/velocity for lattices)
 // or near 0.001 cyclotron period  2pi m/(q B) for Leapfrog (in magnetic field case)
-// 0.1 m/(q B) for Boris (10^-8 at 0.0001T for 3me mass; 2 e-8 for C2- 1Telsa). A good test is to remove lasers and check Energy conservation
+// 0.1 m/(q B) for Boris (10^-8 at 0.0001T for 3me mass; 2 e-8 for C2- 1Telsa). *
+// A good test is to remove lasers and check Energy conservation
 
 //for t< t_scaling_max
 @dt_dyn_epsilon_param  1e-9
 //for t> t_scaling_max
 // fin du temps.
 //@t_fin  10e-9
-@t_fin  101e-9
+@t_fin  20e-9
 // time interval between diagnostics (in cout) output
-@dt_dia 20e-9
+@dt_dia 5e-9
 // time interval between output of snapshots (draw particles)
-@dt_out 20e-9
+@dt_out 2e-9
 #
 ###################### GRAPHICS and OUTPUT ###############################
 #
-@SIZE_affichage	2e-2
+@SIZE_affichage	7e-3
 // Temps d'attende entre 2 affichages. Permet de ne pas avoir un affichage trop rapide
-@t_wait_affichage   1e-10
+@t_wait_affichage   1e-1
 // 0 = false ; 1 =  true
 @Graphics 1
 // rotate 90 degree along the vector (rot_axe_x, rot_axe_y, rot_axe_z)
@@ -193,9 +194,9 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @rayon_bobines  25e-3
 #
 // Champ magn selon x,y et z. se décompose par composante: Example selon Ox: B_x + grad_B_x x + grad_grad_B_x x^2 + Bn x^n
-@B_x	0.
+@B_x	0.0250
 @B_y	0.
-@B_z	1.
+@B_z	0.
 //1.1
 @grad_B_x	0.
 @grad_B_y	0.
@@ -234,13 +235,13 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 ######### 	LASERS 	########################################
 #
 // Parametre multiplicatif de la puissance des lasers
-@scale_Power 1000
+@scale_Power 1
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detunning*)
-@Offset_Detuning_cm  -1.8
+@Offset_Detuning_cm  -2
 
 // Parametre multiplivatif de la largeur spectrale laser
-@scale_Gamma 0.5
+@scale_Gamma 1
 
 // Nb de laser utilisés (pas forcément le nombre ci-après que peut être plus grand)
 @Nb_laser 1
@@ -254,8 +255,8 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @waist_pos_y[0]	0.
 @waist_pos_z[0]	0
 @direction_x[0]	0.
-@direction_y[0]	0.
-@direction_z[0]	1.
+@direction_y[0]	1.
+@direction_z[0]	0.
 // @waist_x[0]	5e-3
 // @waist_y[0]	5e-3
 // Mettre si on veux un seul waist
@@ -269,14 +270,14 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @Energie_cm[0] 41148.3848
 //for 1T and 500K
 
-@Gamma_L_MHz[0] 1e5
-@Power[0]	1.
+@Gamma_L_MHz[0] 5e4
+@Power[0]	1000.
 // Vector laser polarization (in the laser propagation frame)
 // For linear polarization at 54.7356 degree it is  sp= -0.707107  sm= 0.707107 and angle 54.7356
-// by the way this creates 1/3 sigmga+, 1/3 sigma- and 1/3 pi polarization (for a Y laser beam and quantization axes along z)
-@Pol_circulaire_left_sp[0]    0.707107
-@Pol_circulaire_right_sm[0]   -0.707107
-@polar_angle_degree[0]  54.7356
+// by the way this creates 1/3 sigma+, 1/3 sigma- and 1/3 pi polarization (for a Y laser beam and quantization axes along z)
+@Pol_circulaire_left_sp[0]    1
+@Pol_circulaire_right_sm[0]   0.
+@polar_angle_degree[0]  0.
 //  façonné ---> Energie_cm+2*Gamma > EnergiE_trans_cm > Energie_cm (OBSOLETTE)
  // gaussien = 5, lorentzien = 6. (En fait Gaussien ne marche que si le laser est à résonnance et large spectralement)
 @type_laser[0]  6
@@ -433,7 +434,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // Ne pas hésiter à tester aussi epsilon <0. Et a vérifier avec le epsilon_param
 @choix_epsilon  1e-8
 // La même valeur permet d'avoir toujours la même séquence. Une valeur négative utilise le fichier pour renouveler la séquence. If 0 the standard seed from the original implementation
-@Seed_Init_Random_Number_Generator  13
+@Seed_Init_Random_Number_Generator  2
 #
 #
 #############  listes des VARIABLES SCANNEES ou variées temporellement #############
