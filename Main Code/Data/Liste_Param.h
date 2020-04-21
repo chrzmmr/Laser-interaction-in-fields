@@ -44,7 +44,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @offset_y[0]	0
 @offset_z[0]	0
 // Initial velocity added to the random one
-@v0_x[0]	1e5
+@v0_x[0]	1e5 // x-axis here = beam- and z-axis of AEgIS
 @v0_y[0]	0.
 @v0_z[0]    0.
 #
@@ -78,15 +78,15 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // A good test is to remove lasers and check Energy conservation
 
 //for t< t_scaling_max
-@dt_dyn_epsilon_param  1e-9
+@dt_dyn_epsilon_param  5e-10
 //for t> t_scaling_max
 // fin du temps.
 //@t_fin  10e-9
-@t_fin  20e-9
+@t_fin  24e-9 // For UV pulse length of 24ns, stop simulation after this time.
 // time interval between diagnostics (in cout) output
-@dt_dia 5e-9
+@dt_dia 1e-9
 // time interval between output of snapshots (draw particles)
-@dt_out 2e-9
+@dt_out 1e-9
 #
 ###################### GRAPHICS and OUTPUT ###############################
 #

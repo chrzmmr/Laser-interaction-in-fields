@@ -1,0 +1,810 @@
+# depslib dependency file v1.0
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\affichage.cpp
+	"Affichage.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\affichage.h
+	<iostream>
+	<time.h>
+	<windows.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<gl/glut.h>
+	<GL/glu.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	"Vecteur3D.h"
+	"Laser.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\vecteur3d.h
+	<cmath>
+	<iostream>
+	<fstream>
+	<gsl/gsl_rng.h>
+	<gsl/gsl_randist.h>
+	<iostream>
+
+1264226620 c:\program files (x86)\gsl-1.13\include\gsl\gsl_rng.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+
+1264226630 c:\program files (x86)\gsl-1.13\include\gsl\gsl_types.h
+
+1264226610 c:\program files (x86)\gsl-1.13\include\gsl\gsl_errno.h
+	<stdio.h>
+	<errno.h>
+	<gsl/gsl_types.h>
+
+1264226630 c:\program files (x86)\gsl-1.13\include\gsl\gsl_inline.h
+
+1264226620 c:\program files (x86)\gsl-1.13\include\gsl\gsl_randist.h
+	<gsl/gsl_rng.h>
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\laser.h
+	<map>
+	<iostream>
+	"Vecteur3D.h"
+	"constantes_SI.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\constantes_si.h
+	<math.h>
+	"Vecteur3D.h"
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\algorithmes.cpp
+	"algorithmes.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\algorithmes.h
+	<time.h>
+	<fstream>
+	<iostream>
+	<math.h>
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\atome.cpp
+	"atome.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\atome.h
+	<iostream>
+	"Vecteur3D.h"
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\bicubicinterpolation_module.cpp
+	"BicubicInterpolation_module.h"
+	"LekienMarsdenMatrix.h"
+	<iostream>
+	<fstream>
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\bicubicinterpolation_module.h
+	<iostream>
+	<cmath>
+	<stdlib.h>
+	<vector>
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\lekienmarsdenmatrix.h
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\datacards.cpp
+	"datacards.h"
+	<algorithm>
+	<iostream>
+	<iomanip>
+	<cstdio>
+	<string.h>
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\datacards.h
+	<string>
+	<functional>
+	<list>
+	<vector>
+	<string>
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\diagonalization.cpp
+	"diagonalization.h"
+	<iostream>
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\diagonalization.h
+	<Eigen/Eigen>
+	"Internal_state.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\internal_state.h
+	"Vecteur3D.h"
+	"constantes_SI.h"
+	<vector>
+	<iostream>
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\field.cpp
+	"Field.h"
+	<math.h>
+	"constantes_SI.h"
+	"algorithmes.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\field.h
+	"Vecteur3D.h"
+	<vector>
+	"BicubicInterpolation_module.h"
+	"TricubicInterpolation_module.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\tricubicinterpolation_module.h
+	<iostream>
+	<cmath>
+	<stdlib.h>
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\initialisation_programme.cpp
+	"Initialisation_programme.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\initialisation_programme.h
+	<iostream>
+	<gsl/gsl_rng.h>
+	<gsl/gsl_randist.h>
+	<gsl/gsl_cdf.h>
+	"Vecteur3D.h"
+	"Molecule.h"
+	"Laser.h"
+	"Field.h"
+	"Transitions_initialisation.h"
+	"shift_molecule.h"
+	<sstream>
+	"params.h"
+	"params.h"
+
+1264226624 c:\program files (x86)\gsl-1.13\include\gsl\gsl_cdf.h
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\molecule.h
+	"Atome.h"
+	"Internal_state.h"
+	<iostream>
+	"Field.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\transitions_initialisation.h
+	<iostream>
+	"Internal_state.h"
+	<gsl/gsl_rng.h>
+	<gsl/gsl_randist.h>
+	"Molecule.h"
+	"params.h"
+	"datacards.h"
+	<gsl/gsl_sf_coupling.h>
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\params.h
+	<iostream>
+	<vector>
+	<iostream>
+	<string>
+	<gsl/gsl_rng.h>
+	<gsl/gsl_randist.h>
+
+1264226618 c:\program files (x86)\gsl-1.13\include\gsl\gsl_sf_coupling.h
+	<gsl/gsl_sf_result.h>
+
+1264226618 c:\program files (x86)\gsl-1.13\include\gsl\gsl_sf_result.h
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\shift_molecule.h
+	"Molecule.h"
+	"Laser.h"
+	"Field.h"
+	"Initialisation_programme.h"
+	"params.h"
+	<iostream>
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\internal_state.cpp
+	"Internal_state.h"
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\kinetic_monte_carlo.cpp
+	"Kinetic_Monte_Carlo.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\kinetic_monte_carlo.h
+	<vector>
+	<iostream>
+	"algorithmes.h"
+	<cmath>
+	<gsl/gsl_rng.h>
+	<gsl/gsl_randist.h>
+	"constantes_SI.h"
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\laser.cpp
+	"laser.h"
+	<complex>
+
+1587453066 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\main_laser_cooling.cpp
+	<iostream>
+	<cmath>
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<unistd.h>
+	<fstream>
+	<algorithm>
+	<numeric>
+	<iomanip>
+	<list>
+	<windows.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<gl/glut.h>
+	<GL/glu.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<gsl/gsl_rng.h>
+	<gsl/gsl_randist.h>
+	"algorithmes.h"
+	"Internal_state.h"
+	"constantes_SI.h"
+	"Kinetic_Monte_Carlo.h"
+	"Laser.h"
+	"Molecule.h"
+	"Field.h"
+	"datacards.h"
+	"params.h"
+	"Transitions_initialisation.h"
+	"Initialisation_programme.h"
+	"shift_molecule.h"
+	"diagonalization.h"
+	"Transition_rate_calcul.h"
+	"Stat_Molecule.h"
+	"Affichage.h"
+	"Affichage_Mol.h"
+	"sortie_donnees.h"
+	"one_body.h"
+	"scaling_velocities.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\transition_rate_calcul.h
+	<iostream>
+	<iostream>
+	<cmath>
+	"laser.h"
+	"shift_molecule.h"
+	"sortie_donnees.h"
+	"Kinetic_Monte_Carlo.h"
+	"algorithmes.h"
+	<complex>
+	<Eigen/Eigen>
+	"params.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\sortie_donnees.h
+	<iostream>
+	<gsl/gsl_rng.h>
+	<gsl/gsl_randist.h>
+	<stdlib.h>
+	<stdio.h>
+	<fstream>
+	<iostream>
+	<iomanip>
+	"Molecule.h"
+	"Laser.h"
+	"Field.h"
+	"Stat_Molecule.h"
+	"Transition_rate_calcul.h"
+	"params.h"
+	"datacards.h"
+	"diagonalization.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\stat_molecule.h
+	<iostream>
+	"Molecule.h"
+	"one_body.h"
+	<gsl/gsl_statistics.h>
+	"algorithmes.h"
+	"params.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\one_body.h
+	<iostream>
+	<cmath>
+	<cstdlib>
+	<unistd.h>
+	<fstream>
+	"molecule.h"
+	"Field.h"
+	"laser.h"
+	"params.h"
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics.h
+	<gsl/gsl_statistics_long_double.h>
+	<gsl/gsl_statistics_double.h>
+	<gsl/gsl_statistics_float.h>
+	<gsl/gsl_statistics_ulong.h>
+	<gsl/gsl_statistics_long.h>
+	<gsl/gsl_statistics_uint.h>
+	<gsl/gsl_statistics_int.h>
+	<gsl/gsl_statistics_ushort.h>
+	<gsl/gsl_statistics_short.h>
+	<gsl/gsl_statistics_uchar.h>
+	<gsl/gsl_statistics_char.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_long_double.h
+	<stddef.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_double.h
+	<stddef.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_float.h
+	<stddef.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_ulong.h
+	<stddef.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_long.h
+	<stddef.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_uint.h
+	<stddef.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_int.h
+	<stddef.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_ushort.h
+	<stddef.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_short.h
+	<stddef.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_uchar.h
+	<stddef.h>
+
+1264226622 c:\program files (x86)\gsl-1.13\include\gsl\gsl_statistics_char.h
+	<stddef.h>
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\affichage_mol.h
+	<iostream>
+	"constantes_SI.h"
+	"Vecteur3D.h"
+	"Molecule.h"
+	"Field.h"
+	"Affichage.h"
+
+1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\scaling_velocities.h
+	"Atome.h"
+	"Internal_state.h"
+	"Vecteur3D.h"
+	"Laser.h"
+	"Molecule.h"
+	"one_body.h"
+	"Stat_Molecule.h"
+	"algorithmes.h"
+	"params.h"
+	"Field.h"
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\molecule.cpp
+	"molecule.h"
+	"shift_molecule.h"
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\params.cpp
+	<iomanip>
+	<cmath>
+	<cstring>
+	"params.h"
+	<fstream>
+	"datacards.h"
+	<cstdio>
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\scaling_velocities.cpp
+	"scaling_velocities.h"
+	"Atome.h"
+	"Internal_state.h"
+	"Vecteur3D.h"
+	"Laser.h"
+	"Molecule.h"
+	"one_body.h"
+	"Stat_Molecule.h"
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\shift_molecule.cpp
+	"shift_molecule.h"
+	"one_body.h"
+	"algorithmes.h"
+	"Transition_rate_calcul.h"
+	<gsl/gsl_math.h>
+	<gsl/gsl_eigen.h>
+	<gsl/gsl_matrix.h>
+	<gsl/gsl_vector.h>
+	<gsl/gsl_complex.h>
+	<gsl/gsl_complex_math.h>
+	<gsl/gsl_eigen.h>
+	<gsl/gsl_linalg.h>
+	<gsl/gsl_blas.h>
+	<gsl/gsl_cblas.h>
+
+1264226630 c:\program files (x86)\gsl-1.13\include\gsl\gsl_math.h
+	<math.h>
+	<gsl/gsl_sys.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_machine.h>
+	<gsl/gsl_precision.h>
+	<gsl/gsl_nan.h>
+	<gsl/gsl_pow_int.h>
+	<gsl/gsl_minmax.h>
+
+1264226610 c:\program files (x86)\gsl-1.13\include\gsl\gsl_sys.h
+
+1264226630 c:\program files (x86)\gsl-1.13\include\gsl\gsl_machine.h
+	<limits.h>
+	<float.h>
+
+1264226630 c:\program files (x86)\gsl-1.13\include\gsl\gsl_precision.h
+	<gsl/gsl_types.h>
+
+1264226630 c:\program files (x86)\gsl-1.13\include\gsl\gsl_nan.h
+
+1264226630 c:\program files (x86)\gsl-1.13\include\gsl\gsl_pow_int.h
+	<gsl/gsl_inline.h>
+
+1264226630 c:\program files (x86)\gsl-1.13\include\gsl\gsl_minmax.h
+	<gsl/gsl_inline.h>
+
+1264226618 c:\program files (x86)\gsl-1.13\include\gsl\gsl_eigen.h
+	<gsl/gsl_vector.h>
+	<gsl/gsl_matrix.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector.h
+	<gsl/gsl_vector_complex_long_double.h>
+	<gsl/gsl_vector_complex_double.h>
+	<gsl/gsl_vector_complex_float.h>
+	<gsl/gsl_vector_long_double.h>
+	<gsl/gsl_vector_double.h>
+	<gsl/gsl_vector_float.h>
+	<gsl/gsl_vector_ulong.h>
+	<gsl/gsl_vector_long.h>
+	<gsl/gsl_vector_uint.h>
+	<gsl/gsl_vector_int.h>
+	<gsl/gsl_vector_ushort.h>
+	<gsl/gsl_vector_short.h>
+	<gsl/gsl_vector_uchar.h>
+	<gsl/gsl_vector_char.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_complex_long_double.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_complex.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_long_double.h>
+	<gsl/gsl_vector_complex.h>
+	<gsl/gsl_block_complex_long_double.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_complex.h
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_check_range.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_long_double.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_long_double.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_long_double.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_complex.h
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_complex_long_double.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_complex_double.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_complex.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_double.h>
+	<gsl/gsl_vector_complex.h>
+	<gsl/gsl_block_complex_double.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_double.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_double.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_double.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_complex_double.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_complex_float.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_complex.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_float.h>
+	<gsl/gsl_vector_complex.h>
+	<gsl/gsl_block_complex_float.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_float.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_float.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_float.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_complex_float.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_ulong.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_ulong.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_ulong.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_long.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_long.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_long.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_uint.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_uint.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_uint.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_int.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_int.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_int.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_ushort.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_ushort.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_ushort.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_short.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_short.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_short.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_uchar.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_uchar.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_uchar.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_vector_char.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_block_char.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_block_char.h
+	<stdlib.h>
+	<gsl/gsl_errno.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix.h
+	<gsl/gsl_matrix_complex_long_double.h>
+	<gsl/gsl_matrix_complex_double.h>
+	<gsl/gsl_matrix_complex_float.h>
+	<gsl/gsl_matrix_long_double.h>
+	<gsl/gsl_matrix_double.h>
+	<gsl/gsl_matrix_float.h>
+	<gsl/gsl_matrix_ulong.h>
+	<gsl/gsl_matrix_long.h>
+	<gsl/gsl_matrix_uint.h>
+	<gsl/gsl_matrix_int.h>
+	<gsl/gsl_matrix_ushort.h>
+	<gsl/gsl_matrix_short.h>
+	<gsl/gsl_matrix_uchar.h>
+	<gsl/gsl_matrix_char.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_complex_long_double.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_complex.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_complex_long_double.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_complex_double.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_complex.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_complex_double.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_complex_float.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_complex.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_complex_float.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_long_double.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_long_double.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_double.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_double.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_float.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_float.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_ulong.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_ulong.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_long.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_long.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_uint.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_uint.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_int.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_int.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_ushort.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_ushort.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_short.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_short.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_uchar.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_uchar.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_matrix_char.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+	<gsl/gsl_vector_char.h>
+
+1264226612 c:\program files (x86)\gsl-1.13\include\gsl\gsl_complex_math.h
+	<gsl/gsl_inline.h>
+	<gsl/gsl_complex.h>
+
+1264226618 c:\program files (x86)\gsl-1.13\include\gsl\gsl_linalg.h
+	<gsl/gsl_mode.h>
+	<gsl/gsl_permutation.h>
+	<gsl/gsl_vector.h>
+	<gsl/gsl_matrix.h>
+
+1264226630 c:\program files (x86)\gsl-1.13\include\gsl\gsl_mode.h
+	<gsl/gsl_inline.h>
+
+1264226614 c:\program files (x86)\gsl-1.13\include\gsl\gsl_permutation.h
+	<stdlib.h>
+	<gsl/gsl_types.h>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_inline.h>
+	<gsl/gsl_check_range.h>
+
+1264226616 c:\program files (x86)\gsl-1.13\include\gsl\gsl_blas.h
+	<gsl/gsl_vector.h>
+	<gsl/gsl_matrix.h>
+	<gsl/gsl_blas_types.h>
+
+1264226616 c:\program files (x86)\gsl-1.13\include\gsl\gsl_blas_types.h
+	<gsl/gsl_cblas.h>
+
+1264226616 c:\program files (x86)\gsl-1.13\include\gsl\gsl_cblas.h
+	<stddef.h>
+
+1587453066 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\sortie_donnees.cpp
+	"sortie_donnees.h"
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\stat_molecule.cpp
+	"Stat_Molecule.h"
+	<math.h>
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\transition_rate_calcul.cpp
+	"Transition_rate_calcul.h"
+	"diagonalization.h"
+	<sstream>
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\transitions_initialisation.cpp
+	"Transitions_initialisation.h"
+	<sstream>
+	<iomanip>
+
+1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\vecteur3d.cpp
+	"Vecteur3D.h"
+
