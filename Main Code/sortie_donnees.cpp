@@ -160,9 +160,9 @@ void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Intern
 //        file_out  << vz_init << " ";
 //        file_out  << Mol[i].get_vel().z() << " ";
         file_out << t << " ";
-        file_out  << Mol[i].get_pos() << " ";
-        file_out  << Mol[i].get_vel() << " ";
-        file_out  << Mol[i].deg_number << " ";
+        file_out << Mol[i].get_pos() << " ";
+        file_out << Mol[i].get_vel() << " ";
+        file_out << Mol[i].deg_number << " ";
         file_out << endl;
 
 

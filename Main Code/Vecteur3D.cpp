@@ -122,7 +122,7 @@ void Vecteur3D::gaussian_initialisation (const gsl_rng * r, const Vecteur3D sigm
 }
 
 
-// Laplace initilisation utilise
+// Laplace initialisation utilise
 // This function returns a random variate from the Laplace distribution with width a.
 // p(x)dx = (1/2a)exp(−|x/a|)dx.
 void Vecteur3D::laplace_initialisation (const gsl_rng * r, const Vecteur3D sigma)

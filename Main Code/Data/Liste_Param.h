@@ -16,25 +16,27 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // so Mol[0] to Mol[Nom_Mol[0]-1]
 @Nom_Mol[0]	Ps
 // It is the number of molecules that are laser cooled.
-@N_Mol[0]  20
-@Temp_ini_x[0] 100
-@Temp_ini_y[0] 100
-@Temp_ini_z[0] 100
+@N_Mol[0]  200
+@Temp_ini_x[0] 300
+@Temp_ini_y[0] 300
+@Temp_ini_z[0] 300
 
 
-// Choix en position: taille fixe (sigma_pos) ou à partir de la densité
-//  -1 taille fixe et ordonne les positions au départ (selon un axe mettre les autres axes aléatoires)
-//  0 taille fixe donnée par size (gaussien)
-//  1 un pot. magn. linéaire --> Laplace (le coefficient vient de F1)
-//  2 un pot. magn. quadratique for neutral particle --> Gaussien
-//  3 un pot. magn. quadratique for charged particle --> Gaussien
-//  3 for pot. elec. quadratique (electric field linear) but for CHARGED particles (for instance in a Paul trap)--> Gaussien
-//  4 perfect ordered gaussian in velocity (random in position)
+// Choice in position: fixed size (sigma_pos) or from density
+// -1 fixed size and orders the positions at the start (according to an axis put the other axes randomly)
+// 0 fixed size given by size (Gaussian)
+// 1 a pot. magn. linear --> Laplace (the coefficient comes from F1)
+// 2  pot. magn. quadratic for neutral particle --> Gaussian
+// 3  pot. magn. quadratic for charged particle --> Gaussian
+// 3 for pot. elec. quadratic (electric field linear) but for CHARGED particles (for instance in a Paul trap)--> Gaussian
+// 4 perfect ordered gaussian in velocity (random in position)
+// 5 effusive beam. Meaning as in 0 but we keep only the positive velocities
 
 #
-@Procedure_init_x[0]   0
+@Procedure_init_x[0]   5
 @Procedure_init_y[0]   0
 @Procedure_init_z[0]   0
+
 // Taille (x,y,z) si on choisit taille fixe
 @size_x[0]  0.1e-3
 @size_y[0]	2e-3
@@ -44,30 +46,31 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @offset_y[0]	0
 @offset_z[0]	0
 // Initial velocity added to the random one
-@v0_x[0]	1e5 // x-axis here = beam- and z-axis of AEgIS
+@v0_x[0]	0. // 1e5 // x-axis here = beam- and z-axis of AEgIS
 @v0_y[0]	0.
 @v0_z[0]    0.
-#
-#2nd type of particle
-#
-// so Mol[Nom_Mol[0]] to Mol[Nom_Mol[0]+Nom_Mol[1]-1]
-@Nom_Mol[1]	P_bar
-@N_Mol[1]  10
-@Temp_ini_x[1] 4
-@Temp_ini_y[1] 4
-@Temp_ini_z[1] 4
-@Procedure_init_x[1]   0
-@Procedure_init_y[1]   0
-@Procedure_init_z[1]   0
-@size_x[1]	1e-4
-@size_y[1]	1e-4
-@size_z[1]	6e-4
-@offset_x[1]	0.
-@offset_y[1]	0.
-@offset_z[1]	0.
-@v0_x[1]	0.
-@v0_y[1]	0.
-@v0_z[1]	0.
+
+    #
+    #2nd type of particle
+    #
+    // so Mol[Nom_Mol[0]] to Mol[Nom_Mol[0]+Nom_Mol[1]-1]
+    @Nom_Mol[1]	P_bar
+    @N_Mol[1]  10
+    @Temp_ini_x[1] 4
+    @Temp_ini_y[1] 4
+    @Temp_ini_z[1] 4
+    @Procedure_init_x[1]   0
+    @Procedure_init_y[1]   0
+    @Procedure_init_z[1]   0
+    @size_x[1]	1e-4
+    @size_y[1]	1e-4
+    @size_z[1]	6e-4
+    @offset_x[1]	0.
+    @offset_y[1]	0.
+    @offset_z[1]	0.
+    @v0_x[1]	0.
+    @v0_y[1]	0.
+    @v0_z[1]	0.
 #
 ##########   Temps KMC, paramètres de sortie ####################
 #
@@ -90,7 +93,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 #
 ###################### GRAPHICS and OUTPUT ###############################
 #
-@SIZE_affichage	7e-3
+@SIZE_affichage	2e-2
 // Temps d'attende entre 2 affichages. Permet de ne pas avoir un affichage trop rapide
 @t_wait_affichage   1e-1
 // 0 = false ; 1 =  true
@@ -135,7 +138,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 #
 ######### 	Diagonalization	################################
 #
-// Are the energy levels diagonalized or simple calculed using the simple analytical formula used in the code (linear, quadratic or two level case)
+// Are the energy levels diagonalized or simple calculated using the simple analytical formula used in the code (linear, quadratic or two level case)
 //  0 = false (we use the standard simple formulas) ; 1 =  true (we diagonalized)
 @is_Levels_Lines_Diagonalized   1
 #
@@ -194,7 +197,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @rayon_bobines  25e-3
 #
 // Champ magn selon x,y et z. se décompose par composante: Example selon Ox: B_x + grad_B_x x + grad_grad_B_x x^2 + Bn x^n
-@B_x	0.0250
+@B_x	0.0250 // x-axis here = beam-/z-axis of AEgIS
 @B_y	0.
 @B_z	0.
 //1.1
@@ -260,7 +263,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // @waist_x[0]	5e-3
 // @waist_y[0]	5e-3
 // Mettre si on veux un seul waist
-@waist[0]	10e-3
+@waist[0]	5e-3
 //cooling: 2T X,v=0, j=1/2, Mj=1/2 -> A, v=0,j=1/2
 //@Energie_cm[0]  3943.504844
 
@@ -271,7 +274,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //for 1T and 500K
 
 @Gamma_L_MHz[0] 5e4
-@Power[0]	1000.
+@Power[0]	20000.
 // Vector laser polarization (in the laser propagation frame)
 // For linear polarization at 54.7356 degree it is  sp= -0.707107  sm= 0.707107 and angle 54.7356
 // by the way this creates 1/3 sigma+, 1/3 sigma- and 1/3 pi polarization (for a Y laser beam and quantization axes along z)
@@ -399,19 +402,19 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //@nom_file_Levels    Data/H/LevelsH_circular_1_60_lmax50.dat
 //@nom_file_Lines     Data/H/LinesH_circular_1_60_lmax50.dat
 
-@nom_file_Levels    Data/Ps/Ps_Levels_21.dat
-@nom_file_Lines     Data/Ps/Ps_Lines_21.dat
+@nom_file_Levels            Data/Ps/Ps_Levels_21.dat
+@nom_file_Lines             Data/Ps/Ps_Lines_21.dat
 
 // Fichier contenant les spectres laser doit finir en .dat
 // Les dichiers contenant les transitions lasers seront donc ce nom +"[numero laser]" où numéro=0 pour le premier laser
 @nom_file_Laser_Spectrum    Data/Ps/Laser_Spectrum.dat
 #
-@nom_sortie_donnees	Data/donnee_Mol.dat
-@nom_sortie_pulse	Data/sortie_pulse.dat
-@nom_sortie_rate	Data/sortie_rate.dat
+@nom_sortie_donnees	        Data/donnee_Mol.dat
+@nom_sortie_pulse	        Data/sortie_pulse.dat
+@nom_sortie_rate	        Data/sortie_rate.dat
 @nom_sortie_donnees_Data	Data/data_card.dat
-@nom_sortie_temp	Data/sortie_temp.dat
-@nom_sortie_scal    Data/sortie_scal.dat
+@nom_sortie_temp	        Data/sortie_temp.dat
+@nom_sortie_scal            Data/sortie_scal.dat
 #
 @nom_fichier_random_gen Data/random_gen.txt
 #
