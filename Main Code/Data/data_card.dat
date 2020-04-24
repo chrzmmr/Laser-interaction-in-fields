@@ -6,7 +6,7 @@ DATA
 @Temp_ini_x[0] 300 
 @Temp_ini_y[0] 300 
 @Temp_ini_z[0] 300 
-@Procedure_init_x[0] 0 
+@Procedure_init_x[0] 5 
 @Procedure_init_y[0] 0 
 @Procedure_init_z[0] 0 
 @size_x[0] 0.1e-3 
@@ -44,7 +44,7 @@ DATA
 @gap_bobines 25e-3 
 @courant_bobines 1 
 @rayon_bobines 25e-3 
-      @B_x 0.0250 // x-axis here = beam- and z-axis of AEgIS 
+      @B_x 0.0250 // x-axis here = beam-/z-axis of AEgIS 
       @B_y 0. 
       @B_z 0. 
  @grad_B_x 0. 

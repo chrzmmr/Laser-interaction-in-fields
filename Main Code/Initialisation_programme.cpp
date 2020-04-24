@@ -257,6 +257,19 @@ void Init_Molecule(const gsl_rng * r, vector <Molecule> &Mol, const Field fieldB
                     break;
                 }
 
+                case 5: // 5 effusive beam. Meaning as in case 0 but we keep only the positive velocities
+                {
+                    double vj;
+                    do
+                    {
+                        vj =  gsl_ran_gaussian (r,sigmav.get(j));
+                    }
+                    while(vj<0);
+                    velocity.set(j,  vj);
+                    pos.set(j, gsl_ran_gaussian (r,sigma_pos.get(j)));
+                    break;
+                }
+
                 }
             }
 
