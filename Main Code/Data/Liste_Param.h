@@ -16,7 +16,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // so Mol[0] to Mol[Nom_Mol[0]-1]
 @Nom_Mol[0]	Ps
 // It is the number of molecules that are laser cooled.
-@N_Mol[0]  200
+@N_Mol[0]  300
 @Temp_ini_x[0] 300
 @Temp_ini_y[0] 300
 @Temp_ini_z[0] 300
@@ -197,7 +197,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @rayon_bobines  25e-3
 #
 // Champ magn selon x,y et z. se décompose par composante: Example selon Ox: B_x + grad_B_x x + grad_grad_B_x x^2 + Bn x^n
-@B_x	0.0250 // x-axis here = beam-/z-axis of AEgIS
+@B_x	0.//0.0250 // x-axis here = beam-/z-axis of AEgIS
 @B_y	0.
 @B_z	0.
 //1.1
@@ -240,8 +240,8 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // Parametre multiplicatif de la puissance des lasers
 @scale_Power 1
 // Paramètre additif de la fréquence de tous les lasers
-// Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detunning*)
-@Offset_Detuning_cm  -2
+// Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
+@Offset_Detuning_cm  -5 // -5cm-1 = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1
@@ -274,7 +274,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //for 1T and 500K
 
 @Gamma_L_MHz[0] 5e4
-@Power[0]	20000.
+@Power[0] 1//00000. // 20000.
 // Vector laser polarization (in the laser propagation frame)
 // For linear polarization at 54.7356 degree it is  sp= -0.707107  sm= 0.707107 and angle 54.7356
 // by the way this creates 1/3 sigma+, 1/3 sigma- and 1/3 pi polarization (for a Y laser beam and quantization axes along z)
@@ -351,7 +351,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @scale_temp_rep 0.4
 // Nb de répétition (0 = aucune) du processus Sisyphe. A t_repet on recommence, on garde les molécules mais on remet à t=0 les paramètres
 @nb_repet    0
-@t_repet    1000000
+@t_repet    2000000
 #
 #
 ##########   PARAMETRES DE SORTIE FICHIER ####################
@@ -410,6 +410,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @nom_file_Laser_Spectrum    Data/Ps/Laser_Spectrum.dat
 #
 @nom_sortie_donnees	        Data/donnee_Mol.dat
+@nom_sortie_param	        Data/sortie_param.dat
 @nom_sortie_pulse	        Data/sortie_pulse.dat
 @nom_sortie_rate	        Data/sortie_rate.dat
 @nom_sortie_donnees_Data	Data/data_card.dat

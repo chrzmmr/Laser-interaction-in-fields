@@ -127,7 +127,7 @@
 	<cmath>
 	<stdlib.h>
 
-1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\initialisation_programme.cpp
+1587734369 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\initialisation_programme.cpp
 	"Initialisation_programme.h"
 
 1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\initialisation_programme.h
@@ -203,7 +203,7 @@
 	"laser.h"
 	<complex>
 
-1587453066 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\main_laser_cooling.cpp
+1587841711 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\main_laser_cooling.cpp
 	<iostream>
 	<cmath>
 	<cstdlib>
@@ -258,7 +258,7 @@
 	<Eigen/Eigen>
 	"params.h"
 
-1587399783 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\sortie_donnees.h
+1587829884 d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\sortie_donnees.h
 	<iostream>
 	<gsl/gsl_rng.h>
 	<gsl/gsl_randist.h>
@@ -788,7 +788,7 @@
 1264226616 c:\program files (x86)\gsl-1.13\include\gsl\gsl_cblas.h
 	<stddef.h>
 
-1587540691 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\sortie_donnees.cpp
+1587885147 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\sortie_donnees.cpp
 	"sortie_donnees.h"
 
 1587399783 source:d:\dropbox\privat\phd\cern\aegis laser experiment\ps simulation\github version\laser-interaction-in-fields\main code\stat_molecule.cpp

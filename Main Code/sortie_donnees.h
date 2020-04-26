@@ -42,6 +42,8 @@ void Sortie_donnee_etat_int_simple(ofstream & file_out , const vector <Molecule>
 
 void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol, vector <Internal_state> &Levels, const Field &fieldB, const Field &fieldE, const vector <Laser> &laser, const double t, const int nb_mol, FitParams &params,  DataCards &data, const int number_photons);
 
+void Sortie_param(ofstream & file_out,  vector <Molecule> &Mol, vector <Internal_state> &Levels, const Field &fieldB, const Field &fieldE, const vector <Laser> &laser, const double t, const int nb_mol, FitParams &params,  DataCards &data, const int number_photons);
+
 void Sortie_donnee_electrons(ofstream & file_out,  vector <Molecule> &Mol, const vector <Internal_state> &Levels, const Field &fieldB, const Field &fieldE, const vector <Laser> &laser, const double t, const int nb_mol, FitParams &params,  DataCards &data, const int number_photons);
 
 

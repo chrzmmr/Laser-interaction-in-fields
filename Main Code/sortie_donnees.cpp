@@ -91,9 +91,6 @@ void Sortie_test_debug(ofstream & file_out,  vector <Molecule> &Mol,  const vect
 }
 
 
-
-
-
 void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Internal_state> &Level, const Field &fieldB, const Field &fieldE, const vector <Laser> &laser, const double t, const int nb_mol,  FitParams &params,  DataCards &data, const int number_photons)
 {
     //set_pot_all_mol(Mol, fieldB, fieldE, laser, t, nb_mol, params); //Met à jour de tous les potentiels (gravité, PAS dipolaire, magnétique, electrique, ...) avec la nouvelle position pour uen sortie
@@ -261,6 +258,31 @@ void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Intern
 
     // file_out << endl;
     return;
+}
+
+void Sortie_param(ofstream & file_out,  vector <Molecule> &Mol,  vector <Internal_state> &Level, const Field &fieldB, const Field &fieldE, const vector <Laser> &laser, const double t, const int nb_mol,  FitParams &params,  DataCards &data, const int number_photons)
+{
+//    double N_Mol = params.LocateParam("N_Mol")->val;
+//    double B_x = params.LocateParam("B_x")->val;
+//    double T_ini_x = params.LocateParam("Temp_ini_x")->val;
+//    double cloud_size_x = params.LocateParam("size_x[0]")->val;
+//    double cloud_size_y = params.LocateParam("size_y[0]")->val;
+//    double cloud_size_z = params.LocateParam("size_z[0]")->val;
+//    double Laser_power = params.LocateParam("Power[0]")->val;
+//    double Laser_waist = params.LocateParam("waist[0]")->val;
+    double Laser_detuning = params.LocateParam("Offset_Detuning_cm")->val;
+    file_out << t << " ";
+    file_out << Laser_detuning << " ";
+//    file_out << N_Mol << " ";
+//    file_out << B_x << " ";
+//    file_out << T_ini_x << " ";
+//    file_out << cloud_size_x << " ";
+//    file_out << cloud_size_y << " ";
+//    file_out << cloud_size_z << " ";
+//    file_out << Laser_power << " ";
+//    file_out << Laser_waist << " ";
+    file_out << endl;
+
 }
 
 

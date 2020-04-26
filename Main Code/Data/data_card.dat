@@ -1,8 +1,8 @@
- Nb card 159
+ Nb card 160
 DATA 
 @Nb_type_of_Mol 1 
 @Nom_Mol[0] Ps 
- @N_Mol[0] 200 
+ @N_Mol[0] 300 
 @Temp_ini_x[0] 300 
 @Temp_ini_y[0] 300 
 @Temp_ini_z[0] 300 
@@ -44,7 +44,7 @@ DATA
 @gap_bobines 25e-3 
 @courant_bobines 1 
 @rayon_bobines 25e-3 
-      @B_x 0.0250 // x-axis here = beam-/z-axis of AEgIS 
+      @B_x 0.//0.0250 // x-axis here = beam-/z-axis of AEgIS 
       @B_y 0. 
       @B_z 0. 
  @grad_B_x 0. 
@@ -71,7 +71,7 @@ DATA
      @En_y 0. 
      @En_z 0 
 @scale_Power 1 
-@Offset_Detuning_cm -2 
+@Offset_Detuning_cm -5 // -5cm-1 = +30pm @ 243.000nm 
 @scale_Gamma 1 
  @Nb_laser 1 
 @Is_Laser_Switched 0 
@@ -86,7 +86,7 @@ DATA
  @waist[0] 5e-3 
 @Energie_cm[0] 41148.3848 
 @Gamma_L_MHz[0] 5e4 
- @Power[0] 20000. 
+ @Power[0] 1//00000. // 20000. 
 @Pol_circulaire_left_sp[0] 1 
 @Pol_circulaire_right_sm[0] 0. 
 @polar_angle_degree[0] 0. 
@@ -124,7 +124,7 @@ DATA
 @scale_temp_pompage 3 
 @scale_temp_rep 0.4 
  @nb_repet 0 
-  @t_repet 1000000 
+  @t_repet 2000000 
 @is_DataCard_out 2 
 @is_param_scanned_out 1 
 @is_File_FC false 
@@ -143,6 +143,7 @@ DATA
 @nom_file_Lines Data/Ps/Ps_Lines_21.dat 
 @nom_file_Laser_Spectrum Data/Ps/Laser_Spectrum.dat 
 @nom_sortie_donnees Data/donnee_Mol.dat 
+@nom_sortie_param Data/sortie_param.dat 
 @nom_sortie_pulse Data/sortie_pulse.dat 
 @nom_sortie_rate Data/sortie_rate.dat 
 @nom_sortie_donnees_Data Data/data_card.dat 

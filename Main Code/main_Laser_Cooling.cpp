@@ -142,14 +142,15 @@ void RePaint ()
     N_Body_algorithmes Algorithme_N_body = (N_Body_algorithmes) data.IParam("Choix_algorithme_N_corps"); // Choix de l'alogithme N coprs
 
     /***  NOM DES FICHIERS ***/
-    string nom_sortie_temp_string, nom_sortie_scal_string, nom_file_Levels_string, nom_file_Lines_string, nom_sortie_donnees_string, nom_sortie_rate_string, nom_fichier_random_gen_string,
+    string nom_sortie_temp_string, nom_sortie_scal_string, nom_file_Levels_string, nom_file_Lines_string, nom_sortie_donnees_string, nom_sortie_param_string, nom_sortie_rate_string, nom_fichier_random_gen_string,
            nom_file_Laser_Spectrum_string, nom_file_Magn_Field_3D_string, nom_file_Elec_Field_3D_string;
 
-    const char *nom_sortie_temp, *nom_sortie_scal, *nom_file_Levels, *nom_file_Lines, *nom_sortie_donnees, *nom_sortie_rate, *nom_fichier_random_gen, *nom_file_Laser_Spectrum, *nom_file_Magn_Field_3D, *nom_file_Elec_Field_3D;
+    const char *nom_sortie_temp, *nom_sortie_scal, *nom_file_Levels, *nom_file_Lines, *nom_sortie_donnees, *nom_sortie_param, *nom_sortie_rate, *nom_fichier_random_gen, *nom_file_Laser_Spectrum, *nom_file_Magn_Field_3D, *nom_file_Elec_Field_3D;
 
     nom_file_Levels_string =  data.SParam("nom_file_Levels");      // Fichier contenant les Levels (etat, energie, ...)
     nom_file_Lines_string = data.SParam("nom_file_Lines");         // Fichier contenant les transitions
     nom_sortie_donnees_string = data.SParam("nom_sortie_donnees");
+    nom_sortie_param_string = data.SParam("nom_sortie_param");
     nom_sortie_rate_string = data.SParam("nom_sortie_rate");
     nom_fichier_random_gen_string = data.SParam("nom_fichier_random_gen");
     nom_file_Laser_Spectrum_string = data.SParam("nom_file_Laser_Spectrum");         // Fichier contenant les transitions
@@ -163,6 +164,7 @@ void RePaint ()
     nom_file_Levels =  nom_file_Levels_string.c_str();      // Fichier contenant les Levels (etat, energie, ...)
     nom_file_Lines =  nom_file_Lines_string.c_str();         // Fichier contenant les transitions
     nom_sortie_donnees = nom_sortie_donnees_string.c_str();
+    nom_sortie_param = nom_sortie_param_string.c_str();
     nom_sortie_rate = nom_sortie_rate_string.c_str();
     nom_fichier_random_gen = nom_fichier_random_gen_string.c_str();
     nom_file_Laser_Spectrum = nom_file_Laser_Spectrum_string.c_str();         // Fichier contenant les transitions
@@ -199,6 +201,8 @@ void RePaint ()
 
     ofstream file_out(nom_sortie_donnees); // ajouter ", ios::app" si on veux écrire à la fin du fichier. Sinon efface le fichier à la réecriture
     file_out<< setprecision(8);             // 8 décimales dans les fichiers de sortie
+    ofstream file_param(nom_sortie_param);
+    file_param<< setprecision(8);
     ofstream file_rate(nom_sortie_rate);
     ofstream file_temp(nom_sortie_temp);
     ofstream file_scal(nom_sortie_scal);// for scaling velocities
@@ -367,6 +371,7 @@ void RePaint ()
                 // Sortie_donnee_pop_v(file_out, Mol, N_Mol[0], t, NX_out, params, number_photons);
                 // Sortie_donnee_pop_vJ(file_out, Mol, N_Mol[0],  t, NX_out, N_Two_JX_out_max,  params);
                 Sortie_donnee(file_out, Mol, Level, champB, champE, lasers, t, (int) Mol.size(),params,  data, number_photons);  // sortie de toutes les données moléculaires
+                Sortie_param(file_param, Mol, Level, champB, champE, lasers, t, (int) Mol.size(),params,  data, number_photons);
                 t_dia += dt_dia;
             }
 
