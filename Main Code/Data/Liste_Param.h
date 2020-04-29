@@ -197,7 +197,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @rayon_bobines  25e-3
 #
 // Champ magn selon x,y et z. se décompose par composante: Example selon Ox: B_x + grad_B_x x + grad_grad_B_x x^2 + Bn x^n
-@B_x	0.//0.0250 // x-axis here = beam-/z-axis of AEgIS
+@B_x	0.0250e-10 // x-axis here = beam-/z-axis of AEgIS; never put 0, always sth. like 1e-10
 @B_y	0.
 @B_z	0.
 //1.1
@@ -233,15 +233,15 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @n_value_E    3
 @En_x	0.
 @En_y	0.
-@En_z	0
+@En_z	0.
 #
 ######### 	LASERS 	########################################
 #
 // Parametre multiplicatif de la puissance des lasers
-@scale_Power 1
+@scale_Power 1e-10  // never put 0 here, always a infinitesimal small number, such as 1e-10
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
-@Offset_Detuning_cm  -5 // -5cm-1 = +30pm @ 243.000nm
+@Offset_Detuning_cm  -5 // -5/cm = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1
@@ -274,7 +274,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //for 1T and 500K
 
 @Gamma_L_MHz[0] 5e4
-@Power[0] 1//00000. // 20000.
+@Power[0] 100000. // 20000. // never put 0 here, always a infinitesimal small number, such as 1e-10, better use scale_Power to adjust laser power
 // Vector laser polarization (in the laser propagation frame)
 // For linear polarization at 54.7356 degree it is  sp= -0.707107  sm= 0.707107 and angle 54.7356
 // by the way this creates 1/3 sigma+, 1/3 sigma- and 1/3 pi polarization (for a Y laser beam and quantization axes along z)
@@ -298,35 +298,35 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @is_rep[0] 0
 // CW = 0, femto =1, multi_mode=2, pulse=3, faconne = 4, gaussien = 5, lorentzien = 6
 
-#Deuxieme laser. Laser n°2
-@waist_pos_x[1]	0.
-@waist_pos_y[1]	0.
-@waist_pos_z[1]	0
-@direction_x[1]	0.
-@direction_y[1]	0.
-@direction_z[1]	-1.
+    #Deuxieme laser. Laser n°2
+    @waist_pos_x[1]	0.
+    @waist_pos_y[1]	0.
+    @waist_pos_z[1]	0
+    @direction_x[1]	0.
+    @direction_y[1]	0.
+    @direction_z[1]	-1.
 
-@waist[1]	10e-3
-//repump 0.2T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
-//@Energie_cm[1]  3944.511096
-//repump 1T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
-@Energie_cm[1] 41148.3848
+    @waist[1]	10e-3
+    //repump 0.2T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
+    //@Energie_cm[1]  3944.511096
+    //repump 1T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
+    @Energie_cm[1] 41148.3848
 
-@Gamma_L_MHz[1]	1e5
-@Power[1]	1
-// Polarization can be purely circular (sigma+ or sigma -). Example: sigma + --> Pol_circulaire_left_sp = 1 and @Pol_circulaire_right_sm =-1
-// Can also be linear example eX = eX=(e-1-e+1)/sqrt(2). SoPol_circulaire_left_sp = -0.7071 and Pol_circulaire_right_sm[ = 0.7071;
-// Then the angle_psi_degree is (for linear polarization) the angle (so 90° if we want eY polarisation)
-@Pol_circulaire_left_sp[1]    0.7071067812
-@Pol_circulaire_right_sm[1]   -0.7071067812
-@polar_angle_degree[1]  45
+    @Gamma_L_MHz[1]	1e5
+    @Power[1]	1
+    // Polarization can be purely circular (sigma+ or sigma -). Example: sigma + --> Pol_circulaire_left_sp = 1 and @Pol_circulaire_right_sm =-1
+    // Can also be linear example eX = eX=(e-1-e+1)/sqrt(2). SoPol_circulaire_left_sp = -0.7071 and Pol_circulaire_right_sm[ = 0.7071;
+    // Then the angle_psi_degree is (for linear polarization) the angle (so 90° if we want eY polarisation)
+    @Pol_circulaire_left_sp[1]    0.7071067812
+    @Pol_circulaire_right_sm[1]   -0.7071067812
+    @polar_angle_degree[1]  45
 
-@type_laser[1]  5
+    @type_laser[1]  5
 
-@coherent_avec_laser_num[1]  -1
+    @coherent_avec_laser_num[1]  -1
 
-@is_pompage[1] 0
-@is_rep[1] 0
+    @is_pompage[1] 0
+    @is_rep[1] 0
 
 
 #
@@ -438,7 +438,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // Ne pas hésiter à tester aussi epsilon <0. Et a vérifier avec le epsilon_param
 @choix_epsilon  1e-8
 // La même valeur permet d'avoir toujours la même séquence. Une valeur négative utilise le fichier pour renouveler la séquence. If 0 the standard seed from the original implementation
-@Seed_Init_Random_Number_Generator  2
+@Seed_Init_Random_Number_Generator  2 // determines the mode/channel of initialization of initial values (positions, velocities, ...) by the random number generator, if number is not changed, particles will always be generated with the same parameters as for the previous simulation run
 #
 #
 #############  listes des VARIABLES SCANNEES ou variées temporellement #############

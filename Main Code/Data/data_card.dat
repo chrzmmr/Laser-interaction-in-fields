@@ -1,4 +1,4 @@
- Nb card 160
+ Nb card 143
 DATA 
 @Nb_type_of_Mol 1 
 @Nom_Mol[0] Ps 
@@ -44,7 +44,7 @@ DATA
 @gap_bobines 25e-3 
 @courant_bobines 1 
 @rayon_bobines 25e-3 
-      @B_x 0.//0.0250 // x-axis here = beam-/z-axis of AEgIS 
+      @B_x 0.0250e-10 // x-axis here = beam-/z-axis of AEgIS; never put 0, always sth. like 1e-10 
       @B_y 0. 
       @B_z 0. 
  @grad_B_x 0. 
@@ -69,9 +69,9 @@ DATA
 @n_value_E 3 
      @En_x 0. 
      @En_y 0. 
-     @En_z 0 
-@scale_Power 1 
-@Offset_Detuning_cm -5 // -5cm-1 = +30pm @ 243.000nm 
+     @En_z 0. 
+@scale_Power 1e-10 // never put 0 here, always a infinitesimal small number, such as 1e-10 
+@Offset_Detuning_cm -5 // -5/cm = +30pm @ 243.000nm 
 @scale_Gamma 1 
  @Nb_laser 1 
 @Is_Laser_Switched 0 
@@ -86,7 +86,7 @@ DATA
  @waist[0] 5e-3 
 @Energie_cm[0] 41148.3848 
 @Gamma_L_MHz[0] 5e4 
- @Power[0] 1//00000. // 20000. 
+ @Power[0] 100000. // 20000. // never put 0 here, always a infinitesimal small number, such as 1e-10, better use scale_Power to adjust laser power 
 @Pol_circulaire_left_sp[0] 1 
 @Pol_circulaire_right_sm[0] 0. 
 @polar_angle_degree[0] 0. 
@@ -97,23 +97,6 @@ DATA
 @coherent_avec_laser_num[0] -1 
 @is_pompage[0] 0 
 @is_rep[0] 0 
-@waist_pos_x[1] 0. 
-@waist_pos_y[1] 0. 
-@waist_pos_z[1] 0 
-@direction_x[1] 0. 
-@direction_y[1] 0. 
-@direction_z[1] -1. 
- @waist[1] 10e-3 
-@Energie_cm[1] 41148.3848 
-@Gamma_L_MHz[1] 1e5 
- @Power[1] 1 
-@Pol_circulaire_left_sp[1] 0.7071067812 
-@Pol_circulaire_right_sm[1] -0.7071067812 
-@polar_angle_degree[1] 45 
-@type_laser[1] 5 
-@coherent_avec_laser_num[1] -1 
-@is_pompage[1] 0 
-@is_rep[1] 0 
 @num_niveau_first 1 
 @num_niveau_second 6 
 @num_niveau_exc 3 
@@ -153,7 +136,7 @@ DATA
 @Choix_algorithme_Monte_Carlo 0 
 @Choix_algorithme_N_corps 1 
 @choix_epsilon 1e-8 
-@Seed_Init_Random_Number_Generator 2 
+@Seed_Init_Random_Number_Generator 2 // determines the mode/channel of initialization of initial values (positions, velocities, ...) by the random number generator, if number is not changed, particles will always be generated with the same parameters as for the previous simulation run 
 @Tau_Modif 1e-3 
 @is_Scan_Random false 
 @SCAN_scale_Power 5 40 4 false false 

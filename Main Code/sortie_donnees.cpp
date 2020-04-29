@@ -91,6 +91,9 @@ void Sortie_test_debug(ofstream & file_out,  vector <Molecule> &Mol,  const vect
 }
 
 
+
+
+
 void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Internal_state> &Level, const Field &fieldB, const Field &fieldE, const vector <Laser> &laser, const double t, const int nb_mol,  FitParams &params,  DataCards &data, const int number_photons)
 {
     //set_pot_all_mol(Mol, fieldB, fieldE, laser, t, nb_mol, params); //Met à jour de tous les potentiels (gravité, PAS dipolaire, magnétique, electrique, ...) avec la nouvelle position pour uen sortie
@@ -157,9 +160,9 @@ void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Intern
 //        file_out  << vz_init << " ";
 //        file_out  << Mol[i].get_vel().z() << " ";
         file_out << t << " ";
-        file_out << Mol[i].get_pos() << " ";
-        file_out << Mol[i].get_vel() << " ";
-        file_out << Mol[i].deg_number << " ";
+        file_out  << Mol[i].get_pos() << " ";
+        file_out  << Mol[i].get_vel() << " ";
+        file_out  << Mol[i].deg_number << " ";
         file_out << endl;
 
 
@@ -258,31 +261,6 @@ void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Intern
 
     // file_out << endl;
     return;
-}
-
-void Sortie_param(ofstream & file_out,  vector <Molecule> &Mol,  vector <Internal_state> &Level, const Field &fieldB, const Field &fieldE, const vector <Laser> &laser, const double t, const int nb_mol,  FitParams &params,  DataCards &data, const int number_photons)
-{
-//    double N_Mol = params.LocateParam("N_Mol")->val;
-//    double B_x = params.LocateParam("B_x")->val;
-//    double T_ini_x = params.LocateParam("Temp_ini_x")->val;
-//    double cloud_size_x = params.LocateParam("size_x[0]")->val;
-//    double cloud_size_y = params.LocateParam("size_y[0]")->val;
-//    double cloud_size_z = params.LocateParam("size_z[0]")->val;
-//    double Laser_power = params.LocateParam("Power[0]")->val;
-//    double Laser_waist = params.LocateParam("waist[0]")->val;
-    double Laser_detuning = params.LocateParam("Offset_Detuning_cm")->val;
-    file_out << t << " ";
-    file_out << Laser_detuning << " ";
-//    file_out << N_Mol << " ";
-//    file_out << B_x << " ";
-//    file_out << T_ini_x << " ";
-//    file_out << cloud_size_x << " ";
-//    file_out << cloud_size_y << " ";
-//    file_out << cloud_size_z << " ";
-//    file_out << Laser_power << " ";
-//    file_out << Laser_waist << " ";
-    file_out << endl;
-
 }
 
 
@@ -442,10 +420,10 @@ void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <In
         file_rate  << " " << k_laser.mag()/(2*pi*100.) ;  // k = 2*pi*100.*Energy_transition_cm;
 //        double E = fieldE.get_Field(r).mag();
         Internal_state Internal_state_in = Mol[n_mol] ; //  état interne de la molecule
-
 //        double Energy_in = Internal_state_in.Energy_cm;
-//
 //        double Energy_in = Internal_state_in.Energy0_cm + (Internal_state_in.Energy_Shift_B_cm(B) + Internal_state_in.Energy_Shift_E_cm(E));
+        file_rate  << " " <<  Internal_state_in.deg_number ;
+
         Internal_state Internal_state_out = reaction_list[i].final_internal_state ; //  état interne de la molecule après la réaction
 //        double Energy_out = Internal_state_out.Energy_cm;
 //
@@ -456,7 +434,7 @@ void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <In
 //        file_rate <<  " " << B ;
 //        file_rate <<  " " << fieldB.get_Field(r).z();
 //        file_rate <<  " " << Energy_out- Energy_in - Energy_transition_laser_cm;
-//        file_rate <<  "  " << Internal_state_out.Energy0_cm;
+        file_rate <<  "  " << Internal_state_out.deg_number;
 //        file_rate <<  "  " << Energy_out;
 //
 //        file_rate << "  " << Internal_state_in.Energy0_cm ;
@@ -464,37 +442,45 @@ void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <In
 
 
 
-        /*****   CALCUL of parameters for the dipoles or diagonalization, because the INternal States are not the correct one we need to diagonalized in order to find the proper one *******/
+        /*****   CALCUL of parameters for the dipoles or diagonalization,
+         because the INternal States are not the correct one we need to diagonalized in order to find
+         the proper one
 
-        if ( (params.LocateParam("is_Levels_Lines_Diagonalized")->val) )
-        {
-            int level_in = Internal_state_in.deg_number;
-            int level_out = Internal_state_out.deg_number;
 
-            file_rate  << " " << level_in ; // is the number for the level of the molecule
-            file_rate  << " " << level_out ; // is the number for the level of the molecule
+         for all 21 levels              j        Energy_j         Energy_J-Energy_out     TRIPLET_CHARACTER
 
-            file_rate  << endl;
-            MatrixXd d[3] ;
-            SelfAdjointEigenSolver<MatrixXd> es; // eigenstates and eigenvalues
-
-            Diagonalization_Energy_dipole(Level, B, v, es, d);
-            for (int j=0; j< Level.size(); j++) //  we scan over the levels to calculate the parameter
-            {
-                double param = 0.; //This is the parameter we want to calculate (here the triplet character)
-
-                for (int j0=0; j0< Level.size(); j0++) //  | j> =  sum_|j>_O   0_<j | j>  |j>_0  so we scan over |j>_0 hat is the order in the Level file
-                    // 0_<j | j>  is given by   es.eigenvectors()(j0,j) . This is the coefficient of the |j> level (ordered in Energy) on the |j>_0 Level (the on in the Level file)
+            *******/
+        /***
+                if ( (params.LocateParam("is_Levels_Lines_Diagonalized")->val) )
                 {
-                    if (Level[j0].two_Omega == 2) // If the state is triplet (2S+1=3 so S=1) we look on the decomposition, |0_<i | i>|^2 , and sum them
+                    int level_in = Internal_state_in.deg_number;
+                    int level_out = Internal_state_out.deg_number;
+
+                    file_rate  << " " << level_in ; // is the number for the level of the molecule
+                    file_rate  << " " << level_out ; // is the number for the level of the molecule
+
+                    file_rate  << endl;
+                    MatrixXd d[3] ;
+                    SelfAdjointEigenSolver<MatrixXd> es; // eigenstates and eigenvalues
+
+                    Diagonalization_Energy_dipole(Level, B, v, es, d);
+                    for (int j=0; j< Level.size(); j++) //  we scan over the levels to calculate the parameter
                     {
-                        param +=  pow((es.eigenvectors()(j0,j)),2); // sum_|triple, j>_O   |0_<j | j>|^2
+                        double param = 0.; //This is the parameter we want to calculate (here the triplet character)
+
+                        for (int j0=0; j0< Level.size(); j0++) //  | j> =  sum_|j>_O   0_<j | j>  |j>_0  so we scan over |j>_0 hat is the order in the Level file
+                            // 0_<j | j>  is given by   es.eigenvectors()(j0,j) . This is the coefficient of the |j> level (ordered in Energy) on the |j>_0 Level (the on in the Level file)
+                        {
+                            if (Level[j0].two_Omega == 2) // If the state is triplet (2S+1=3 so S=1) we look on the decomposition, |0_<i | i>|^2 , and sum them
+                            {
+                                param +=  pow((es.eigenvectors()(j0,j)),2); // sum_|triple, j>_O   |0_<j | j>|^2
+                            }
+                        }
+                        file_rate << " " << j << " " << es.eigenvalues()(j)<< " " << es.eigenvalues()(j) - es.eigenvalues()(level_out) << " " << abs(round(10.*param))/10. << endl;
+
                     }
                 }
-                file_rate << " " << j << " " << es.eigenvalues()(j)<< " " << es.eigenvalues()(j) - es.eigenvalues()(level_out) << " " << abs(round(10.*param))/10. << endl;
-
-            }
-        }
+        ****/
 
 //        file_rate <<  " " << (reaction_list[i].final_internal_state).two_M ;
 //        file_rate <<  " " <<  Mol[reaction_list[i].n_mol].two_M << endl;

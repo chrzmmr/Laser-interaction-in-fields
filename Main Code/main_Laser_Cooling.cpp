@@ -357,7 +357,7 @@ void RePaint ()
 
             calcul_rates_molecules(Level, Algorithme_MC, reaction_list, rate, Mol, champB, champE, lasers, t, number_mol, N_Mol[0], params); // Calcul les taux de transition de toutes les molécules si numero_mol = aucune.
             // Sinon on ne recalcule que celui de la molécule numero_mol
-            // Sortie_rate(file_rate, rate, Level, reaction_list, Mol, champB, champE, lasers, N_Mol[0], t, params);
+            Sortie_rate(file_rate, rate, Level, reaction_list, Mol, champB, champE, lasers, N_Mol[0], t, params);
 
             // Sortie_donnee_etat_int_simple(file_out , Mol, lasers, t, params);
 
@@ -367,11 +367,11 @@ void RePaint ()
             if (t >= t_dia)
             {
                 // Sortie_laser_spectrum(file_out, lasers, params, 0);
-                // Sortie_rate(file_rate, rate, reaction_list, Mol, champB, champE, lasers, N_Mol[0], t, params);
+                // Sortie_rate(file_rate, rate, Level, reaction_list, Mol, champB, champE, lasers, N_Mol[0], t, params);
                 // Sortie_donnee_pop_v(file_out, Mol, N_Mol[0], t, NX_out, params, number_photons);
                 // Sortie_donnee_pop_vJ(file_out, Mol, N_Mol[0],  t, NX_out, N_Two_JX_out_max,  params);
                 Sortie_donnee(file_out, Mol, Level, champB, champE, lasers, t, (int) Mol.size(),params,  data, number_photons);  // sortie de toutes les données moléculaires
-                Sortie_param(file_param, Mol, Level, champB, champE, lasers, t, (int) Mol.size(),params,  data, number_photons);
+                // Sortie_param(file_param, Mol, Level, champB, champE, lasers, t, (int) Mol.size(),params,  data, number_photons);
                 t_dia += dt_dia;
             }
 
