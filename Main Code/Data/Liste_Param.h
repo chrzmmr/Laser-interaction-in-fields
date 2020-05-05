@@ -16,7 +16,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // so Mol[0] to Mol[Nom_Mol[0]-1]
 @Nom_Mol[0]	Ps
 // It is the number of molecules that are laser cooled.
-@N_Mol[0]  300
+@N_Mol[0]  1
 @Temp_ini_x[0] 300
 @Temp_ini_y[0] 300
 @Temp_ini_z[0] 300
@@ -85,11 +85,11 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //for t> t_scaling_max
 // fin du temps.
 //@t_fin  10e-9
-@t_fin  24e-9 // For UV pulse length of 24ns, stop simulation after this time.
+@t_fin  240e-9 // For UV pulse length of 24ns, stop simulation after this time.
 // time interval between diagnostics (in cout) output
-@dt_dia 1e-9
+@dt_dia 10e-9
 // time interval between output of snapshots (draw particles)
-@dt_out 1e-9
+@dt_out 10e-9
 #
 ###################### GRAPHICS and OUTPUT ###############################
 #
@@ -197,7 +197,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @rayon_bobines  25e-3
 #
 // Champ magn selon x,y et z. se décompose par composante: Example selon Ox: B_x + grad_B_x x + grad_grad_B_x x^2 + Bn x^n
-@B_x	0.0250e-10 // x-axis here = beam-/z-axis of AEgIS; never put 0, always sth. like 1e-10
+@B_x	10. // 0.0250e-10 // x-axis here = beam-/z-axis of AEgIS; never put 0, always sth. like 1e-10
 @B_y	0.
 @B_z	0.
 //1.1

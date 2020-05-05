@@ -271,7 +271,9 @@ int rates_molecule_spon(vector <Internal_state> &Level, vector <type_codage_reac
 
     axe_quant = fieldB.get_Field(r)+ fieldE.get_Field(r); // A priori les deux champs doivent avoir le même axe on choisi. Cela permetra d'orienter l'émission spontanée
 
-    double B = fieldB.get_Field(r).mag();
+    Vecteur3D Bfield;
+    Bfield= fieldB.get_Field(r);
+    double B = Bfield.mag();
     double E = fieldE.get_Field(r).mag();
     double Energy_transition_cm =0.;
 
@@ -285,7 +287,7 @@ int rates_molecule_spon(vector <Internal_state> &Level, vector <type_codage_reac
     {
         MatrixXd d[3] ; // d[0] = dipole transition for sigma minus <i|d^(-1)|j> = d0_ij  in  field ;  d[1] dipole transition for pi <i|d^(0)|j> in  field and d[2] is dipole transition for sigma plus <i|d^(1)|j> in  field
         SelfAdjointEigenSolver<MatrixXd> es; // eigenstates and eigenvalues
-        Diagonalization_Energy_dipole(Level, B, v.mag(), es,  d);  // diagonalized the Hamiltionian for B field and v velocity and give the eigenvectors and eigenvalues and  update all Level[n].Energy_cm
+        Diagonalization_Energy_dipole(Level, B, (v.cross(Bfield)).mag()/B, es,  d);  // diagonalized the Hamiltionian for B field and v velocity and give the eigenvectors and eigenvalues and  update all Level[n].Energy_cm
 
         int i = my_mol.deg_number; //The molecules is in the Level number n_level_in.// so Level[ # = deg_number] shall be the Level itself// So in the Level file the deg_number is the Level number (START FROM 0)
         Internal_state_in = Level[i]; // Internal_state_in = my_mol ; //  état interne de la molecule
@@ -453,10 +455,11 @@ int rates_molecule(vector <Internal_state> &Level, vector <type_codage_react> &r
     int is_bound_transition ; // Trick to treat the ionization. An ionizing state is of 0 symmetry. All other states are -1 or +1 thus transform to +1 = true
     Internal_state Internal_state_in,Internal_state_out; // State for transitions
 
-    Vecteur3D r,v;
+    Vecteur3D r,v,Bfield;
     r = my_mol.get_pos();
     v = my_mol.get_vel();
-    double B = fieldB.get_Field(r).mag();
+    Bfield= fieldB.get_Field(r);
+    double B = Bfield.mag();
     double E = fieldE.get_Field(r).mag();
 
     const int Nb_laser = laser.size();
@@ -482,7 +485,7 @@ int rates_molecule(vector <Internal_state> &Level, vector <type_codage_react> &r
         MatrixXd d[3] ; // d[0] = dipole transition for sigma minus <i|d^(-1)|j> = d0_ij  in  field ;  d[1] dipole transition for pi <i|d^(0)|j> in  field and d[2] is dipole transition for sigma plus <i|d^(-1)|j> in  field
         SelfAdjointEigenSolver<MatrixXd> es; // eigenstates and eigenvalues
 
-        Diagonalization_Energy_dipole(Level, B, v.mag(), es, d); // calcul of the new dipole transition for the new levels (after the  emission of photons). The energy levels order may have changed
+        Diagonalization_Energy_dipole(Level, B, (v.cross(Bfield)).mag()/B, es, d); // calcul of the new dipole transition for the new levels (after the  emission of photons). The energy levels order may have changed
 
         int n_level_in = my_mol.deg_number; //The molecules is in the Level number n_level_in.// so Level[ # = deg_number] shall be the Level itself// So in the Level file the deg_number is the Level number (START FROM 0)
         Internal_state Internal_state_in = Level[n_level_in]; // Internal_state_in = my_mol ; //  état interne de la molecule
@@ -500,7 +503,7 @@ int rates_molecule(vector <Internal_state> &Level, vector <type_codage_react> &r
             /***** Emission: v--> v-HBAR*k/m *****/
 
             if (n_level_in>0) // 0 is the lowest level so it can not emit photons
-                Diagonalization_Energy_dipole(Level, B, (v-HBAR*k/m).mag(), es, d); // calcul of the new dipole transition for the new levels (after the  emission of photons). The energy levels order may have changed
+                Diagonalization_Energy_dipole(Level, B, ((v-HBAR*k/m).cross(Bfield)).mag()/B, es, d); // calcul of the new dipole transition for the new levels (after the  emission of photons). The energy levels order may have changed
             for( int n_level_out = 0; n_level_out < n_level_in; n_level_out++ )
             {
                 rates_single_molecule_laser_level( n_las, dipole_debye, delta[n_las], eps_pol,  Gamma_spon_tot, sqrt_intensity_loc, Level, Internal_state_in, Internal_state_out,
@@ -510,7 +513,7 @@ int rates_molecule(vector <Internal_state> &Level, vector <type_codage_react> &r
 
             /***** Absorption: v--> v+HBAR*k/m *****/
             if (n_level_in< Level.size()) // to make the loop over all levels
-                Diagonalization_Energy_dipole(Level, B, (v+HBAR*k/m).mag(), es, d); // calcul of the new dipole transition for the new levels (after the  absorption of photons). The energy levels order may have changed
+                Diagonalization_Energy_dipole(Level, B, ((v+HBAR*k/m).cross(Bfield)).mag()/B, es, d); // calcul of the new dipole transition for the new levels (after the  absorption of photons). The energy levels order may have changed
             for( int n_level_out = n_level_in+1; n_level_out < Level.size(); n_level_out++ ) // Absorption
             {
                 is_bound_transition = abs(Level[n_level_out].Sym);

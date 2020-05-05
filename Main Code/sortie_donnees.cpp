@@ -393,7 +393,7 @@ void Sortie_donnee_pop_v(ofstream & file_out, const vector <Molecule> &Mol, cons
 
 void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <Internal_state> &Level, const vector <type_codage_react> &reaction_list, const vector <Molecule> &Mol, const Field &fieldB, const Field &fieldE, const vector <Laser> &laser, const int N_Mol, const double t,  FitParams &params)
 {
-    file_rate<< setprecision(12);
+    file_rate << setprecision(12);
     file_rate << " time t = " << t << endl;
 
     int nb_rate = rate.size();
@@ -403,8 +403,8 @@ void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <In
         file_rate  << " " << rate[i];
         int n_mol= reaction_list[i].n_mol;
         int n_laser = reaction_list[i].n_laser;
-        //reaction is {n_mol; n_laser; quant_axis; pol_vector; k_eff_laser; final_internal_state;}.
-        // For stimlated emission it is { n_mol, n_las, k, k, k, Internal_state_out}
+        // reaction is {n_mol; n_laser; quant_axis; pol_vector; k_eff_laser; final_internal_state;}.
+        // For stimulated emission it is { n_mol, n_las, k, k, k, Internal_state_out}
         // For spontaneous emission { num_mol, -1, axe_quant, Vecteur3D(d[0](i,j),d[1](i,j),d[2](i,j)), Vecteur(k,0,0) , Level[j]}
         file_rate << " " << n_mol ;
         file_rate << " " << n_laser;
@@ -446,11 +446,10 @@ void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <In
          because the INternal States are not the correct one we need to diagonalized in order to find
          the proper one
 
-
          for all 21 levels              j        Energy_j         Energy_J-Energy_out     TRIPLET_CHARACTER
 
-            *******/
-        /***
+        *******/
+
                 if ( (params.LocateParam("is_Levels_Lines_Diagonalized")->val) )
                 {
                     int level_in = Internal_state_in.deg_number;
@@ -480,7 +479,7 @@ void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <In
 
                     }
                 }
-        ****/
+
 
 //        file_rate <<  " " << (reaction_list[i].final_internal_state).two_M ;
 //        file_rate <<  " " <<  Mol[reaction_list[i].n_mol].two_M << endl;

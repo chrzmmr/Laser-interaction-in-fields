@@ -2,7 +2,7 @@
 
 #include  <iostream>                       // to include cout, cin
 
-// diagonalized the Hamiltionian for B field and v velocity and give the eigenvectors and eigenvalues and  update all Level[n].Energy_cm
+// diagonalized the Hamiltionian for B field and v velocity (orthogonal to B) and give the eigenvectors and eigenvalues and  update all Level[n].Energy_cm
 void Diagonalization_Energy(vector <Internal_state> &Level, double B, double v, SelfAdjointEigenSolver<MatrixXd> &es)
 {
 
@@ -73,11 +73,11 @@ void Diagonalization_Energy(vector <Internal_state> &Level, double B, double v, 
     };
 
     double Zeeman_cm_B[nb_levels][nb_levels] =
-    {
-        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,-0.9337307964640151,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+   {
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,-0.9337307964640151,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,-0.9337307964640151,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,-0.9337307964640151,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -150,7 +150,7 @@ void Diagonalization_Energy(vector <Internal_state> &Level, double B, double v, 
 }
 
 
-// diagonalized the Hamiltionian for B field and v velocity and give the eigenvectors and eigenvalues and dipoles update all Level[n].Energy_cm
+// diagonalized the Hamiltionian for B field and v velocity (orthogonal to B) and give the eigenvectors and eigenvalues and dipoles update all Level[n].Energy_cm
 void Diagonalization_Energy_dipole(vector <Internal_state> &Level, double B, double v,  SelfAdjointEigenSolver<MatrixXd> &es,  MatrixXd d[])
 {
 
