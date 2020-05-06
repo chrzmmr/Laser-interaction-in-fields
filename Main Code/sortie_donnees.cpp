@@ -133,8 +133,8 @@ void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Intern
 
 
 //    file_out  << t << " ";
-//    file_out << number_photons << " ";
-//    file_out << stat_Mol.Temp_3D_50 << " ";
+//    file_out  << number_photons << " ";
+//    file_out  << stat_Mol.Temp_3D_50 << " ";
 //    file_out  << stat_Mol.population << " ";
 //    file_out  << stat_Mol.Temp_1D_50.z() << " ";
 
@@ -145,9 +145,11 @@ void Sortie_donnee(ofstream & file_out,  vector <Molecule> &Mol,  vector <Intern
     //  file_out  << (stat_Mol.E_cin/kB)/mK/1.5/nb_mol << "  ";
     //  file_out << (stat_Mol.E_pot+stat_Mol.E_cin)/kB/mK/1.5/nb_mol << "  ";
 
-    cout  << (stat_Mol.E_pot/kB)/mK/1.5/nb_mol << "  ";
-    cout  << (stat_Mol.E_cin/kB)/mK/1.5/nb_mol << "  ";
+    cout << t << "  ";
+    cout << (stat_Mol.E_pot/kB)/mK/1.5/nb_mol << "  ";
+    cout << (stat_Mol.E_cin/kB)/mK/1.5/nb_mol << "  ";
     cout << (stat_Mol.E_pot+stat_Mol.E_cin)/kB/mK/1.5/nb_mol << "  ";
+    cout << number_photons << "  ";
 
     cout << endl;
 
@@ -449,7 +451,7 @@ void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <In
          for all 21 levels              j        Energy_j         Energy_J-Energy_out     TRIPLET_CHARACTER
 
         *******/
-
+/*****
                 if ( (params.LocateParam("is_Levels_Lines_Diagonalized")->val) )
                 {
                     int level_in = Internal_state_in.deg_number;
@@ -479,6 +481,7 @@ void Sortie_rate(ofstream & file_rate, const  vector <double> &rate,  vector <In
 
                     }
                 }
+                *****/
 
 
 //        file_rate <<  " " << (reaction_list[i].final_internal_state).two_M ;

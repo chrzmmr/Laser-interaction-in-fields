@@ -44,7 +44,7 @@ DATA
 @gap_bobines 25e-3 
 @courant_bobines 1 
 @rayon_bobines 25e-3 
-      @B_x 1e4 // 0.0250e-10 // x-axis here = beam-/z-axis of AEgIS; never put 0, always sth. like 1e-10 
+      @B_x 10000. // 0.0250e-10 // x-axis here = beam-/z-axis of AEgIS; never put 0, always sth. like 1e-10 
       @B_y 0. 
       @B_z 0. 
  @grad_B_x 0. 
