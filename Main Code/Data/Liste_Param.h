@@ -197,7 +197,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @rayon_bobines  25e-3
 #
 // Champ magn selon x,y et z. se décompose par composante: Example selon Ox: B_x + grad_B_x x + grad_grad_B_x x^2 + Bn x^n
-@B_x	0.0250 // e-10 // x-axis here = beam-/z-axis of AEgIS; never put 0, always sth. like 1e-10
+@B_x	0.0250 //e-10 // x-axis here = beam-/z-axis of AEgIS; never put 0, always sth. like 1e-10
 @B_y	0.
 @B_z	0.
 //1.1
@@ -238,10 +238,10 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 ######### 	LASERS 	########################################
 #
 // Parametre multiplicatif de la puissance des lasers
-@scale_Power 1 //e-10  // never put 0 here, always a infinitesimal small number, such as 1e-10
+@scale_Power 1  // never put 0 here, always a infinitesimal small number, such as 1e-10
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
-@Offset_Detuning_cm  -5 // -5/cm = +30pm @ 243.000nm
+@Offset_Detuning_cm  -3 // -5/cm = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1
@@ -274,7 +274,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //for 1T and 500K
 
 @Gamma_L_MHz[0] 5e4
-@Power[0] 20000. // 20kW = 500uJ/24ns; Never put 0 here, always an infinitesimal small number, such as 1e-10, better use scale_Power to adjust laser power
+@Power[0] 100000. // 20kW = 500uJ/24ns; Never put 0 here, always an infinitesimal small number, such as 1e-10, better use scale_Power to adjust laser power
 // Vector laser polarization (in the laser propagation frame)
 // For linear polarization at 54.7356 degree it is  sp= -0.707107  sm= 0.707107 and angle 54.7356
 // by the way this creates 1/3 sigma+, 1/3 sigma- and 1/3 pi polarization (for a Y laser beam and quantization axes along z)
