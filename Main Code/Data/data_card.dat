@@ -71,7 +71,7 @@ DATA
      @En_y 0. 
      @En_z 0. 
 @scale_Power 1 // never put 0 here, always a infinitesimal small number, such as 1e-10 
-@Offset_Detuning_cm -3 // -5/cm = +30pm @ 243.000nm 
+@Offset_Detuning_cm +5 // -5/cm = +30pm @ 243.000nm 
 @scale_Gamma 1 
  @Nb_laser 1 
 @Is_Laser_Switched 0 
