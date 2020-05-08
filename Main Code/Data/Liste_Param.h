@@ -274,7 +274,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //for 1T and 500K
 
 @Gamma_L_MHz[0] 5e4
-@Power[0] 100000. // 20kW = 500uJ/24ns; Never put 0 here, always an infinitesimal small number, such as 1e-10, better use scale_Power to adjust laser power
+@Power[0] 20000. // 20kW = 500uJ/24ns; Never put 0 here, always an infinitesimal small number, such as 1e-10, better use scale_Power to adjust laser power
 // Vector laser polarization (in the laser propagation frame)
 // For linear polarization at 54.7356 degree it is  sp= -0.707107  sm= 0.707107 and angle 54.7356
 // by the way this creates 1/3 sigma+, 1/3 sigma- and 1/3 pi polarization (for a Y laser beam and quantization axes along z)
