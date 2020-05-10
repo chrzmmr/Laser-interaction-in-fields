@@ -241,7 +241,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @scale_Power 1  // never put 0 here, always a infinitesimal small number, such as 1e-10
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
-@Offset_Detuning_cm  +5 // -5/cm = +30pm @ 243.000nm
+@Offset_Detuning_cm  -5 // -5/cm = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1
@@ -315,7 +315,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
     @Gamma_L_MHz[1]	1e5
     @Power[1]	1
     // Polarization can be purely circular (sigma+ or sigma -). Example: sigma + --> Pol_circulaire_left_sp = 1 and @Pol_circulaire_right_sm =-1
-    // Can also be linear example eX = eX=(e-1-e+1)/sqrt(2). SoPol_circulaire_left_sp = -0.7071 and Pol_circulaire_right_sm[ = 0.7071;
+    // Can also be linear example eX = eX=(e-1-e+1)/sqrt(2). So Pol_circulaire_left_sp = -0.7071 and Pol_circulaire_right_sm[ = 0.7071;
     // Then the angle_psi_degree is (for linear polarization) the angle (so 90° if we want eY polarisation)
     @Pol_circulaire_left_sp[1]    0.7071067812
     @Pol_circulaire_right_sm[1]   -0.7071067812

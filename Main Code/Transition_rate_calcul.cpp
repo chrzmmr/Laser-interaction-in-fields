@@ -281,15 +281,17 @@ int rates_molecule_spon(vector <Internal_state> &Level, vector <type_codage_reac
     double k=0.; // Spontaneous emission lenght wave vector
 
 
-    /**********  WE DIAGONILIZED THE ENERGY LEVELS so the transition dipole moment are not constant and need to be calculated **********/
+    /**********  WE DIAGONALIZED THE ENERGY LEVELS so the transition dipole moment are not constant and need to be calculated
+    BUt we do not know the real k vector of the sponteneous emission so we do not correct for the recoil energy level **********/
 
     if ( (params.LocateParam("is_Levels_Lines_Diagonalized")->val) )
     {
         MatrixXd d[3] ; // d[0] = dipole transition for sigma minus <i|d^(-1)|j> = d0_ij  in  field ;  d[1] dipole transition for pi <i|d^(0)|j> in  field and d[2] is dipole transition for sigma plus <i|d^(1)|j> in  field
         SelfAdjointEigenSolver<MatrixXd> es; // eigenstates and eigenvalues
-        Diagonalization_Energy_dipole(Level, B, (v.cross(Bfield)).mag()/B, es,  d);  // diagonalized the Hamiltionian for B field and v velocity and give the eigenvectors and eigenvalues and  update all Level[n].Energy_cm
+        Diagonalization_Energy_dipole(Level, B, (v.cross(Bfield)).mag()/B, es,  d);
+        // diagonalized the Hamiltionian for B field and v velocity and give the eigenvectors and eigenvalues and  update all Level[n].Energy_cm
 
-        int i = my_mol.deg_number; //The molecules is in the Level number n_level_in.// so Level[ # = deg_number] shall be the Level itself// So in the Level file the deg_number is the Level number (START FROM 0)
+        int i = my_mol.deg_number; // The molecules is in the Level number n_level_in.// so Level[ # = deg_number] shall be the Level itself// So in the Level file the deg_number is the Level number (START FROM 0)
         Internal_state_in = Level[i]; // Internal_state_in = my_mol ; //  état interne de la molecule
 
         for (int j=0; j<i; j++) // We scan only for levels that are below level i in energy
@@ -478,14 +480,14 @@ int rates_molecule(vector <Internal_state> &Level, vector <type_codage_react> &r
     }
 
 
-    /**********  WE DIAGONILIZED THE ENERGY LEVELS so the transition dipole moment are not constant and need to be calculated (we do not treat interference between lasers) **********/
+    /**********  WHEN WE DIAGONALIZED THE ENERGY LEVELS,the transition dipole moment are not constant and need to be calculated (we do not treat interference between lasers) **********/
 
     if ( (params.LocateParam("is_Levels_Lines_Diagonalized")->val) )
     {
         MatrixXd d[3] ; // d[0] = dipole transition for sigma minus <i|d^(-1)|j> = d0_ij  in  field ;  d[1] dipole transition for pi <i|d^(0)|j> in  field and d[2] is dipole transition for sigma plus <i|d^(-1)|j> in  field
         SelfAdjointEigenSolver<MatrixXd> es; // eigenstates and eigenvalues
 
-        Diagonalization_Energy_dipole(Level, B, (v.cross(Bfield)).mag()/B, es, d); // calcul of the new dipole transition for the new levels (after the  emission of photons). The energy levels order may have changed
+        Diagonalization_Energy_dipole(Level, B, (v.cross(Bfield)).mag()/B, es, d); // calcul of the new dipole transition for the new levels.
 
         int n_level_in = my_mol.deg_number; //The molecules is in the Level number n_level_in.// so Level[ # = deg_number] shall be the Level itself// So in the Level file the deg_number is the Level number (START FROM 0)
         Internal_state Internal_state_in = Level[n_level_in]; // Internal_state_in = my_mol ; //  état interne de la molecule
