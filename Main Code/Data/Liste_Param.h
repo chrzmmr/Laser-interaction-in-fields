@@ -16,10 +16,10 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // so Mol[0] to Mol[Nom_Mol[0]-1]
 @Nom_Mol[0]	Ps
 // It is the number of molecules that are laser cooled.
-@N_Mol[0]  4000
-@Temp_ini_x[0] 300
-@Temp_ini_y[0] 300
-@Temp_ini_z[0] 300
+@N_Mol[0]  1
+@Temp_ini_x[0] 0
+@Temp_ini_y[0] 0
+@Temp_ini_z[0] 0
 
 
 // Choice in position: fixed size (sigma_pos) or from density
@@ -81,15 +81,15 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // A good test is to remove lasers and check Energy conservation
 
 //for t< t_scaling_max
-@dt_dyn_epsilon_param  5e-10
+@dt_dyn_epsilon_param  5e-11 // 5e-10
 //for t> t_scaling_max
 // fin du temps.
 //@t_fin  10e-9
-@t_fin  24e-9 // For UV pulse length of 24ns, stop simulation after this time.
+@t_fin  240e-9 // For UV pulse length of 24ns, stop simulation after this time.
 // time interval between diagnostics (in cout) output
-@dt_dia 1e-9
+@dt_dia 1e-11 // 1e-9
 // time interval between output of snapshots (draw particles)
-@dt_out 1e-9
+@dt_out 1e-11 // 1e-9
 #
 ###################### GRAPHICS and OUTPUT ###############################
 #
@@ -171,8 +171,8 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // DEFAULT
 // 0: 2nd order plus a nth order
 
-// (anti-)Helmotlz coils
-// 1:  Field in Helmoltz coils (so usualy goes with @type_of_default_field 0)
+// (anti-)Helmholtz coils
+// 1:  Field in Helmholtz coils (so usualy goes with @type_of_default_field 0)
 
 // File grids + Electric 2nd order: EQUIPARTITIONED POINTS (at least per axis, the spacing can be different for each axis). Ordered by column (1st increasing then second then third etc ..)
 // 2: Field map 3D from 2D cylindrical symmetry: 4 columns r,z, F_r(r,z); F_z(r,z)
@@ -241,7 +241,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @scale_Power 1  // never put 0 here, always a infinitesimal small number, such as 1e-10
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
-@Offset_Detuning_cm  -5 // -5/cm = +30pm @ 243.000nm
+@Offset_Detuning_cm  0 // -5/cm = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1
@@ -257,8 +257,8 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @waist_pos_x[0]	0.
 @waist_pos_y[0]	0.
 @waist_pos_z[0]	0
-@direction_x[0]	0.
-@direction_y[0]	1.
+@direction_x[0]	1.
+@direction_y[0]	0.
 @direction_z[0]	0.
 // @waist_x[0]	5e-3
 // @waist_y[0]	5e-3
