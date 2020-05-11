@@ -357,7 +357,7 @@ void RePaint ()
 
             calcul_rates_molecules(Level, Algorithme_MC, reaction_list, rate, Mol, champB, champE, lasers, t, number_mol, N_Mol[0], params); // Calcul les taux de transition de toutes les molécules si numero_mol = aucune.
             // Sinon on ne recalcule que celui de la molécule numero_mol
-            Sortie_rate(file_rate, rate, Level, reaction_list, Mol, champB, champE, lasers, N_Mol[0], t, params);
+ //           Sortie_rate(file_rate, rate, Level, reaction_list, Mol, champB, champE, lasers, N_Mol[0], t, params);
 
             // Sortie_donnee_etat_int_simple(file_out , Mol, lasers, t, params);
 
