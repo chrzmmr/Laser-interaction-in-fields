@@ -239,10 +239,10 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 ######### 	LASERS 	########################################
 #
 // Parametre multiplicatif de la puissance des lasers
-@scale_Power 1  // never put 0 here, always a infinitesimal small number, such as 1e-10
+@scale_Power 1 //e-10 // never put 0 here, always a infinitesimal small number, such as 1e-10
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
-@Offset_Detuning_cm  5 // -5/cm = +30pm @ 243.000nm
+@Offset_Detuning_cm  +2 // -5/cm = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1
