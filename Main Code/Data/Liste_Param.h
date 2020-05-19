@@ -242,7 +242,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @scale_Power 1 //e-10 // never put 0 here, always a infinitesimal small number, such as 1e-10
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
-@Offset_Detuning_cm  10 // -5/cm = +30pm @ 243.000nm
+@Offset_Detuning_cm  -8 // -5/cm = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1
@@ -274,7 +274,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @Energie_cm[0] 41148.3848
 //for 1T and 500K
 
-@Gamma_L_MHz[0] 5e4
+@Gamma_L_MHz[0] 10e4
 @Power[0] 20000. // 20kW = 500uJ/24ns; Never put 0 here, always an infinitesimal small number, such as 1e-10, better use scale_Power to adjust laser power
 // Vector laser polarization (in the laser propagation frame)
 // For linear polarization at 54.7356 degree it is  sp= -0.707107  sm= 0.707107 and angle 54.7356
