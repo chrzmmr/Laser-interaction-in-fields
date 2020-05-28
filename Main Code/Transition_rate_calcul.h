@@ -154,8 +154,10 @@ int do_reaction_FastRoughMethod(const MC_algorithmes Algorithme_MC, const gsl_rn
 int do_reaction(const MC_algorithmes Algorithme_MC, const gsl_rng * r,  const vector <double> &rate, const vector <type_codage_react> &reaction_list,
                 vector <Molecule> &Mol, const int n_reac, const  vector <Laser> &my_laser, const double dt_KMC, ofstream & file_rate, bool first_call, int &number_photons, FitParams &params);
 
-// Gives a random unit vector for the spontaneous emission for a transition delta_M=-1,0,+1 and a quantization axis
-// Or (if diagonalized) for a polarization vector e_pol
+// Gives a random unit vector (in the lab frame) for the spontaneous emission for a transition delta_M=-1,0,+1 and a quantization axis
+// Or (if diagonalized) for a polarization vector e_pol:
+//  e_pol[q] = normalized dipole transition <i|d_(q)|j>; q=-1,0,1. So in the quantification axis e_pol = sum_q epol_q E^q
+// the probability distribution linked with f(r)= (3/8π)[1-|r.e_pol|^2]
 Vecteur3D get_unit_vector_spontaneous_emission(const gsl_rng * r, Vecteur3D e_pol_dipole_transition, Vecteur3D quantization_axis, int delta_M, FitParams &params);
 
 

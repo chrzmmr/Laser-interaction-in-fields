@@ -16,10 +16,10 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // so Mol[0] to Mol[Nom_Mol[0]-1]
 @Nom_Mol[0]	Ps
 // It is the number of molecules that are laser cooled.
-@N_Mol[0]  4000
-@Temp_ini_x[0] 300
-@Temp_ini_y[0] 300
-@Temp_ini_z[0] 300
+@N_Mol[0]  100
+@Temp_ini_x[0] 0
+@Temp_ini_y[0] 0
+@Temp_ini_z[0] 0
 
 
 // Choice in position: fixed size (sigma_pos) or from density
@@ -85,11 +85,11 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //for t> t_scaling_max
 // fin du temps.
 //@t_fin  10e-9
-@t_fin  24e-9 // For UV pulse length of 24ns, stop simulation after this time.
+@t_fin  240e-9 // For UV pulse length of 24ns, stop simulation after this time.
 // time interval between diagnostics (in cout) output
-@dt_dia 1e-9
+@dt_dia 10e-9
 // time interval between output of snapshots (draw particles)
-@dt_out 1e-9
+@dt_out 10e-9
 #
 ###################### GRAPHICS and OUTPUT ###############################
 #
@@ -197,10 +197,10 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @rayon_bobines  25e-3
 #
 // Champ magn selon x,y et z. se décompose par composante: Example selon Ox: B_x + grad_B_x x + grad_grad_B_x x^2 + Bn x^n
-@B_x	0.01767775 // =0.0250/sqrt(2) //e-10 // here: x-axis = Ps direction of propagation => beam-/z-axis of AEgIS = B-axis has to be angle bisector of x-z
-        // Never put 0, always sth. like 1e-10!!!
+@B_x	1e-10 //0.01767775 // =0.0250/sqrt(2) //e-10 // here: x-axis = Ps direction of propagation => beam-/z-axis of AEgIS = B-axis has to be angle bisector of x-z
+        // Never put 0 here, always sth. like 1e-10!!!
 @B_y	0.
-@B_z	-0.01767775 // =0.0250/sqrt(2)
+@B_z	0. //-0.01767775 // =0.0250/sqrt(2)
 //1.1
 @grad_B_x	0.
 @grad_B_y	0.
@@ -239,10 +239,10 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 ######### 	LASERS 	########################################
 #
 // Parametre multiplicatif de la puissance des lasers
-@scale_Power 1 //e-10 // never put 0 here, always a infinitesimal small number, such as 1e-10
+@scale_Power 1e-10 // never put 0 here, always a infinitesimal small number, such as 1e-10
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
-@Offset_Detuning_cm  +1 // -5/cm = +30pm @ 243.000nm
+@Offset_Detuning_cm  -5 // -5/cm = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1

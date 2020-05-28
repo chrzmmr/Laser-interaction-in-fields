@@ -274,10 +274,9 @@ double champ_E(const double irradiance)
 
 
 
-
-// effectif dipole d.e_laser = sum_p d^p epsilon_p
-// where the dipole transition vector d= sum_p d^p e_p is given in the local quantification axis
-// and the polarisation vector e_laser= sum_p' epsilon_p'^* e_p'  is given in the laser axis
+// (absolute value of the) effectif dipole d.e_laser = sum_p d_p epsilon^p
+// where the dipole transition vector d= sum_p d_p e^p is given in the local quantification axis
+// and the polarisation vector e_laser= sum_p' epsilon^p' e_p'  is given in the laser axis
 double effectif_dipole_local(const Vecteur3D& dipole, const Vecteur3D& axe_quant,  const Laser& my_laser)
 {
     double dp,d0,dm;
@@ -296,7 +295,7 @@ double effectif_dipole_local(const Vecteur3D& dipole, const Vecteur3D& axe_quant
     double theta_k = Euler_angles_axe_laser(1); // polar angle for the laser axis (along the vector k)
 
 
-    // The polarization vector = am exp(i psi) e'_-1 + ap exp(-i psi) e'_-1    is given in the list param by ap (for sigma+), am for sigma- and the polar_angle psi
+    // The polarization vector = am exp(i psi) e'_-1 + ap exp(-i psi) e'_+1    is given in the list param by ap (for sigma+), am for sigma- and the polar_angle psi
     // So  epsilon_-1 = am exp(-i psi) and epsilon_+1 = ap exp(i psi)
     Vecteur3D polarization = my_laser.get_polarisation();
     double am = polarization(0);
@@ -316,30 +315,30 @@ double effectif_dipole_local(const Vecteur3D& dipole, const Vecteur3D& axe_quant
     double sin_theta_F = sin(theta_F);
     double cos_theta_k = cos(theta_k);
     double cos_theta_F = cos(theta_F);
-    double cos_phi_F_minus_phi_k = cos(phi_F-phi_k);
-    double sin_phi_F_minus_phi_k = sin(phi_F-phi_k);
     double sqrt2 = sqrt(2.);
 
-    double d1F = (dm-dp)*cos_theta_F + sqrt2*d0*sin_theta_F;
-    double d2F = (dp-dm)*sin_theta_F + sqrt2*d0*cos_theta_F;
+     double dp_minus_dm = (dp-dm);
 
-    dip_eff  = (am - exp(2.*i*psi)*ap) *
-               (
-                   cos_theta_k*(cos_phi_F_minus_phi_k*d1F + i*(dm+dp)*sin_phi_F_minus_phi_k ) - sin_theta_k*d2F
-               )
-               +
-               (am + exp(2.*i*psi)*ap)*
-               (
-                   (dm+dp)*cos_phi_F_minus_phi_k + i*d1F*sin_phi_F_minus_phi_k
-               );
+    double d1F = -dp_minus_dm*cos_theta_F + sqrt2*d0*sin_theta_F;
+    double d2F = dp_minus_dm*sin_theta_F + sqrt2*d0*cos_theta_F;
 
+    double dp_plus_dm = dp+dm;
 
-    return abs(dip_eff/2.);
+    complex<double> am_psi_minus_ap = am*exp(2.*i*psi) - ap;
+    complex<double> am_psi_plus_ap = am*exp(2.*i*psi) + ap;
+    complex<double> exp_F_plus_k = exp(2.*i*phi_F) + exp(2.*i*phi_k) ;
+    complex<double> exp_F_minus_k = exp(2.*i*phi_F) - exp(2.*i*phi_k) ;
+
+       dip_eff  = am_psi_plus_ap*(dp_plus_dm*exp_F_plus_k - exp_F_minus_k*d1F)+
+       am_psi_minus_ap*cos_theta_k*(-dp_plus_dm*exp_F_minus_k + exp_F_plus_k*d1F)
+       -2.*exp(i*(phi_F+phi_k))*am_psi_minus_ap*d2F*sin_theta_k;
+
+    return abs(dip_eff/4.); // Only the absolute value is needed
 }
 
 
 /***
-Compare to the PRA 2014 we change notation now to be like Mathematica or Wikipedia:
+Compare to the PRA 2014 we change notation now to be like Wikipedia in ZXZ concention (BE CAREFUL MATHEMATICA and Varshalovitch are in ZYZ convention)
  repère x,y,z du labo  et X,Y,Z de l'axe de quantification donné par le champ extérieur local
 On utilise les angles d'Euler pour faire les rotations de repère
 http://en.wikipedia.org/wiki/Euler_angles qui note (alpha,beta,gamma)
@@ -374,8 +373,16 @@ Vecteur3D  Euler_angles( Vecteur3D direction)
 
 
 /**
+With the Euler angle alpha, beta, gamma that goes from the x,y,z, frame to the X,Y,Z one
 
-On passe du repère X,Y,Z à x,y,z  R=Ar par (transpose of Z1 X2 Z3 convention)
+we have for the coordinates R=Ar  (Z1 X2 Z3 convention)
+A is the  matrix
+
+a_(11)  a_(12)  a_(13)
+a_(21)  a_(22)  a_(23)
+a_(31)  a_(32)  a_(33)
+
+
 a_(11)	=	cos(gamma)*cos(alpha) - cos(beta)*sin(alpha)*sin(gamma)
 a_(12)	=	cos(gamma)*sin(alpha) + cos(beta)*cos(alpha)*sin(gamma)
 a_(13)	=	sin(gamma)*sin(beta)
@@ -396,7 +403,7 @@ Vecteur3D  rotation_lab_axis(const Vecteur3D& point, double alpha, double beta, 
 {
     Vecteur3D A1,A2,A3; //  A Rotation Matrix
 
-    A1=Vecteur3D(cos(gamma)*cos(alpha)-cos(beta)*sin(alpha)*sin(gamma),cos(gamma)*sin(alpha)+cos(beta)*cos(alpha)*sin(gamma), sin(gamma)*sin(beta));      // A1=(a11,a12,a13) (gamma=0)
+    A1=Vecteur3D(cos(gamma)*cos(alpha)-cos(beta)*sin(alpha)*sin(gamma),cos(gamma)*sin(alpha)+cos(beta)*cos(alpha)*sin(gamma), sin(gamma)*sin(beta));      // A1=(a11,a12,a13)
     A2=Vecteur3D(-sin(gamma)*cos(alpha)-cos(beta)*sin(alpha)*cos(gamma), -sin(gamma)*sin(alpha)+cos(beta)*cos(alpha)*cos(gamma),cos(gamma)*sin(beta) );
     A3=Vecteur3D(sin(beta)*sin(alpha),  -sin(beta)*cos(alpha), cos(beta));
 
@@ -409,7 +416,7 @@ Vecteur3D  rotation_lab_axis(const Vecteur3D& point, double alpha, double beta, 
 }
 
 
-// Passage des coordonnées point (X,Y,Z) à labo (x,y,z) (labo).
+// Passage des coordonnées point (X,Y,Z) donné dans le REPERE à labo (x,y,z) (repère labo).
 // Le repère XYZ est donnée donné par les angles d'Euler alpha beta et gamma par rapport à xyz
 Vecteur3D  rotation_axis_lab(const Vecteur3D& point, double alpha, double beta, double gamma)
 {

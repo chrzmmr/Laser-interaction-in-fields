@@ -14,8 +14,8 @@ waist :  Le waist est w_kx, w_ky, w_kz où kz est l'axe selon k.
 lambda : longueur d'onde lambda moyenne (en SI, i.e. en metre)  DANS LE VIDE.
 Gamma_Laser : largeur spectrale FWHM  en s^-1.
 Power : puissance,
-Polarisation est un vecteur normé qui contient epsilon_-1 (codé sur x), espilon_0 (sur y) et epsilon_+1 (sur z)
-où -1 (pour sigma- =  circulaire righte car l'axe de quanti est k),0 (pour pi), 1 (pour sigma+ =  circulaire left car l'axe de quanti est k)
+Polarisation est un vecteur normé qui contient epsilon^-1 (codé sur x), espilon^0 (sur y) et epsilon^+1 (sur z)
+où -1 (pour sigma- =  circulaire right car l'axe de quanti est k),0 (pour pi), 1 (pour sigma+ =  circulaire left car l'axe de quanti est k)
 polar_angle_degree gives the polarization angle (cf User Guide)
 type_laser : le type (CW, pulsé femto, gaussien, lorentzien, comb, black body...)
 coherent_avec_laser_num: pour les interférences  est le numéro du premier laser avec lequel il est cohérent.
@@ -420,16 +420,16 @@ public:                // Forme canonique d'une classe
 double champ_E(const double irradiance);
 
 
-// effectif dipole d.e_laser = sum_p d^p epsilon_p
-// where the dipole transition vector d= sum_p d^p e_p is given in the local quantification axis
-// and the polarisation vector e_laser= sum_p' epsilon_p'^* e_p'  is given in the laser axis
+// (absolute value of the)  effectif dipole d.e_laser = sum_p d_p epsilon^p
+// where the dipole transition vector d= sum_p d_p e^p is given in the local quantification axis
+// and the polarisation vector e_laser= sum_p' epsilon^p' e_p'  is given in the laser axis
 double effectif_dipole_local(const Vecteur3D& dipole, const Vecteur3D& axe_quant,  const Laser& my_laser);
 
 
 
 /***
 
-Compare to the PRA 2014 we change notation now to be like Mathematica or Wikipedia:
+Compare to the PRA 2014 we change notation now to be like Wikipedia in ZXZ convention(BE CAREFUL MATHEMATICA and Varshalovitch are in ZYZ convention)
  repère x,y,z du labo  et X,Y,Z de l'axe de quantification donné par le champ extérieur local
 On utilise les angles d'Euler pour faire les rotations de repère
 http://en.wikipedia.org/wiki/Euler_angles qui note (alpha,beta,gamma)
@@ -448,12 +448,12 @@ http://en.wikipedia.org/wiki/Euler_angles qui note (alpha,beta,gamma)
 // Nous choissons les angles tel que le repère soit le repère polaire dont OZ est la direction et OX selon le méridien
 Vecteur3D  Euler_angles( Vecteur3D direction);
 
-// Passage des coordonnées point(x,y,z) (labo) à (X,Y,Z): R=Ar donné par les angles d'Euler alpha beta et gamma
+// Passage des coordonnées point(x,y,z) (labo) à (X,Y,Z): donné par les angles d'Euler alpha beta et gamma (qui font passer de e_x,e_y,e_z à e_X e_Y e_Z)
 // cf http://mathworld.wolfram.com/EulerAngles.html
 //Laser coordinates where point=(x,y,z) is lab coordinate
 Vecteur3D  rotation_lab_axis(const Vecteur3D& point, double alpha, double beta, double gamma=0.);
 
-// Passage des coordonnées point (X,Y,Z) à labo (x,y,z) (labo).
+// Passage des coordonnées point (X,Y,Z) donné dans le REPERE à labo (x,y,z) (repère labo).
 // Le repère XYZ est donnée donné par les angles d'Euler alpha beta et gamma par rapport à xyz
 Vecteur3D  rotation_axis_lab(const Vecteur3D& point, double alpha, double beta, double gamma=0.);
 
