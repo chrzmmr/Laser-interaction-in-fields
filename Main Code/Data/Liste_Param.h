@@ -16,10 +16,10 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // so Mol[0] to Mol[Nom_Mol[0]-1]
 @Nom_Mol[0]	Ps
 // It is the number of molecules that are laser cooled.
-@N_Mol[0]  2000
-@Temp_ini_x[0] 0
-@Temp_ini_y[0] 0
-@Temp_ini_z[0] 0
+@N_Mol[0]  4
+@Temp_ini_x[0] 300
+@Temp_ini_y[0] 300
+@Temp_ini_z[0] 300
 
 
 // Choice in position: fixed size (sigma_pos) or from density
@@ -85,7 +85,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //for t> t_scaling_max
 // fin du temps.
 //@t_fin  10e-9
-@t_fin  1000e-9 // For UV pulse length of 24ns, stop simulation after this time.
+@t_fin  24-9 // For UV pulse length of 24ns, stop simulation after this time.
 // time interval between diagnostics (in cout) output
 @dt_dia 1e-9
 // time interval between output of snapshots (draw particles)
@@ -239,10 +239,10 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 ######### 	LASERS 	########################################
 #
 // Parametre multiplicatif de la puissance des lasers
-@scale_Power 1e-10 // never put 0 here, always a infinitesimal small number, such as 1e-10
+@scale_Power 1 // never put 0 here, always a infinitesimal small number, such as 1e-10
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
-@Offset_Detuning_cm  0 // -5/cm = +30pm @ 243.000nm
+@Offset_Detuning_cm  -5 // -5/cm = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1
@@ -271,7 +271,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //normal penning trap 1T (Zeeman shifted)
 //X,v=0, j=1/2, Mj=1/2 -> A, v=0,j=1/2
 //@Energie_cm[0] 41155.3604450767 // for 4.5 T and 500 K
-@Energie_cm[0] 41148.3848
+@Energie_cm[0] 41148.23871 // 41148.23871 to n=2,3P1; 41148.3848 to n=2,3P2
 //for 1T and 500K
 
 @Gamma_L_MHz[0] 5e4
