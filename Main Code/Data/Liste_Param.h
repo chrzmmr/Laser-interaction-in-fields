@@ -16,7 +16,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // so Mol[0] to Mol[Nom_Mol[0]-1]
 @Nom_Mol[0]	Ps
 // It is the number of molecules that are laser cooled.
-@N_Mol[0]  4
+@N_Mol[0]  100
 @Temp_ini_x[0] 300
 @Temp_ini_y[0] 300
 @Temp_ini_z[0] 300
@@ -85,7 +85,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 //for t> t_scaling_max
 // fin du temps.
 //@t_fin  10e-9
-@t_fin  24-9 // For UV pulse length of 24ns, stop simulation after this time.
+@t_fin  24e-9 // For UV pulse length of 24ns, stop simulation after this time.
 // time interval between diagnostics (in cout) output
 @dt_dia 1e-9
 // time interval between output of snapshots (draw particles)
@@ -251,8 +251,8 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @Nb_laser 1
 
 @Is_Laser_Switched 0
-@dt_switch_1 3e-8
-@dt_switch_2 1e-8
+@dt_switch_1 3e-10
+@dt_switch_2 5e-8
 
 # Premier laser. Laser n°1 (called number 0 in the C++ program)
 @waist_pos_x[0]	0.
@@ -274,7 +274,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @Energie_cm[0] 41148.23871 // 41148.23871 to n=2,3P1; 41148.3848 to n=2,3P2
 //for 1T and 500K
 
-@Gamma_L_MHz[0] 5e4
+@Gamma_L_MHz[0] 50e3
 @Power[0] 20000. // 20kW = 500uJ/24ns; Never put 0 here, always an infinitesimal small number, such as 1e-10, better use scale_Power to adjust laser power
 // Vector laser polarization (in the laser propagation frame)
 // For linear polarization at 54.7356 degree it is  sp= -0.707107  sm= 0.707107 and angle 54.7356
@@ -299,35 +299,38 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @is_rep[0] 0
 // CW = 0, femto =1, multi_mode=2, pulse=3, faconne = 4, gaussien = 5, lorentzien = 6
 
-    #Deuxieme laser. Laser n°2
-    @waist_pos_x[1]	0.
-    @waist_pos_y[1]	0.
-    @waist_pos_z[1]	0
-    @direction_x[1]	0.
-    @direction_y[1]	0.
-    @direction_z[1]	-1.
 
-    @waist[1]	10e-3
-    //repump 0.2T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
-    //@Energie_cm[1]  3944.511096
-    //repump 1T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
-    @Energie_cm[1] 41148.3848
 
-    @Gamma_L_MHz[1]	1e5
-    @Power[1]	1
-    // Polarization can be purely circular (sigma+ or sigma -). Example: sigma + --> Pol_circulaire_left_sp = 1 and @Pol_circulaire_right_sm =-1
-    // Can also be linear example eX = eX=(e-1-e+1)/sqrt(2). So Pol_circulaire_left_sp = -0.7071 and Pol_circulaire_right_sm[ = 0.7071;
-    // Then the angle_psi_degree is (for linear polarization) the angle (so 90° if we want eY polarisation)
-    @Pol_circulaire_left_sp[1]    0.7071067812
-    @Pol_circulaire_right_sm[1]   -0.7071067812
-    @polar_angle_degree[1]  45
 
-    @type_laser[1]  5
+#Deuxieme laser. Laser n°2
+@waist_pos_x[1]	0.
+@waist_pos_y[1]	0.
+@waist_pos_z[1]	0
+@direction_x[1]	0.
+@direction_y[1]	0.
+@direction_z[1]	-1.
 
-    @coherent_avec_laser_num[1]  -1
+@waist[1]	10e-10
+//repump 0.2T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
+//@Energie_cm[1]  3944.511096
+//repump 1T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
+@Energie_cm[1] 1 //41148.3848
 
-    @is_pompage[1] 0
-    @is_rep[1] 0
+@Gamma_L_MHz[1]	1
+@Power[1]	1e-20
+// Polarization can be purely circular (sigma+ or sigma -). Example: sigma + --> Pol_circulaire_left_sp = 1 and @Pol_circulaire_right_sm =-1
+// Can also be linear example eX = eX=(e-1-e+1)/sqrt(2). So Pol_circulaire_left_sp = -0.7071 and Pol_circulaire_right_sm[ = 0.7071;
+// Then the angle_psi_degree is (for linear polarization) the angle (so 90° if we want eY polarisation)
+@Pol_circulaire_left_sp[1]    0.7071067812
+@Pol_circulaire_right_sm[1]   -0.7071067812
+@polar_angle_degree[1]  45
+
+@type_laser[1]  5
+
+@coherent_avec_laser_num[1]  -1
+
+@is_pompage[1] 0
+@is_rep[1] 0
 
 
 #
