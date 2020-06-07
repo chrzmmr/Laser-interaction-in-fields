@@ -67,6 +67,7 @@
 		<Unit filename="Affichage_Mol.h" />
 		<Unit filename="BicubicInterpolation_module.cpp" />
 		<Unit filename="BicubicInterpolation_module.h" />
+		<Unit filename="Data/Liste_Param.h" />
 		<Unit filename="Field.cpp" />
 		<Unit filename="Field.h" />
 		<Unit filename="Initialisation_programme.cpp" />

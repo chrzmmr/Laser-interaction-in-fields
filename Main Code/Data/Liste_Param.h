@@ -16,7 +16,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // so Mol[0] to Mol[Nom_Mol[0]-1]
 @Nom_Mol[0]	Ps
 // It is the number of molecules that are laser cooled.
-@N_Mol[0]  100
+@N_Mol[0]  4000
 @Temp_ini_x[0] 300
 @Temp_ini_y[0] 300
 @Temp_ini_z[0] 300
@@ -242,7 +242,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @scale_Power 1 // never put 0 here, always a infinitesimal small number, such as 1e-10
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
-@Offset_Detuning_cm  -5 // -5/cm = +30pm @ 243.000nm
+@Offset_Detuning_cm  -15 // -5/cm = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1
@@ -302,35 +302,35 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 
 
 
-#Deuxieme laser. Laser n°2
-@waist_pos_x[1]	0.
-@waist_pos_y[1]	0.
-@waist_pos_z[1]	0
-@direction_x[1]	0.
-@direction_y[1]	0.
-@direction_z[1]	-1.
+    #Deuxieme laser. Laser n°2
+    @waist_pos_x[1]	0.
+    @waist_pos_y[1]	0.
+    @waist_pos_z[1]	0
+    @direction_x[1]	0.
+    @direction_y[1]	0.
+    @direction_z[1]	-1.
 
-@waist[1]	10e-10
-//repump 0.2T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
-//@Energie_cm[1]  3944.511096
-//repump 1T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
-@Energie_cm[1] 1 //41148.3848
+    @waist[1]	10e-10
+    //repump 0.2T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
+    //@Energie_cm[1]  3944.511096
+    //repump 1T, X,v=0,j=1/2,Mj=-1/2 -> A,v=0,j=1/2
+    @Energie_cm[1] 1 //41148.3848
 
-@Gamma_L_MHz[1]	1
-@Power[1]	1e-20
-// Polarization can be purely circular (sigma+ or sigma -). Example: sigma + --> Pol_circulaire_left_sp = 1 and @Pol_circulaire_right_sm =-1
-// Can also be linear example eX = eX=(e-1-e+1)/sqrt(2). So Pol_circulaire_left_sp = -0.7071 and Pol_circulaire_right_sm[ = 0.7071;
-// Then the angle_psi_degree is (for linear polarization) the angle (so 90° if we want eY polarisation)
-@Pol_circulaire_left_sp[1]    0.7071067812
-@Pol_circulaire_right_sm[1]   -0.7071067812
-@polar_angle_degree[1]  45
+    @Gamma_L_MHz[1]	1
+    @Power[1]	1e-20
+    // Polarization can be purely circular (sigma+ or sigma -). Example: sigma + --> Pol_circulaire_left_sp = 1 and @Pol_circulaire_right_sm =-1
+    // Can also be linear example eX = eX=(e-1-e+1)/sqrt(2). So Pol_circulaire_left_sp = -0.7071 and Pol_circulaire_right_sm[ = 0.7071;
+    // Then the angle_psi_degree is (for linear polarization) the angle (so 90° if we want eY polarisation)
+    @Pol_circulaire_left_sp[1]    0.7071067812
+    @Pol_circulaire_right_sm[1]   -0.7071067812
+    @polar_angle_degree[1]  45
 
-@type_laser[1]  5
+    @type_laser[1]  5
 
-@coherent_avec_laser_num[1]  -1
+    @coherent_avec_laser_num[1]  -1
 
-@is_pompage[1] 0
-@is_rep[1] 0
+    @is_pompage[1] 0
+    @is_rep[1] 0
 
 
 #
