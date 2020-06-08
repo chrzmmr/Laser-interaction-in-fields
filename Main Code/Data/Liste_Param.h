@@ -242,7 +242,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @scale_Power 1 // never put 0 here, always a infinitesimal small number, such as 1e-10
 // Paramètre additif de la fréquence de tous les lasers
 // Si Offset_Detuning_cm est >0 le laser est plus bleu (*1K detuning*)
-@Offset_Detuning_cm  -15 // -5/cm = +30pm @ 243.000nm
+@Offset_Detuning_cm  -5 // -5/cm = +30pm @ 243.000nm
 
 // Parametre multiplivatif de la largeur spectrale laser
 @scale_Gamma 1
@@ -465,7 +465,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @is_Scan_Random    false
 # name  minv    maxv    nbstep  is_scanned  is_time tau
 BEGIN_OF_FITPARAMS
-@SCAN_scale_Power  5 40 4   false    false
+@SCAN_scale_Power  0.5 5 9   true  false
 @SCAN_Offset_Detuning_cm -2.5 -1 5 false false
 @SCAN_scale_Gamma 0.3 0.6 3   false    false
 @SCAN_Tau_Modif 0.5e-3 2e-3 2 false false
