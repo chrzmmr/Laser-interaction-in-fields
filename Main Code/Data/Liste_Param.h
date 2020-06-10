@@ -465,7 +465,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 @is_Scan_Random    false
 # name  minv    maxv    nbstep  is_scanned  is_time tau
 BEGIN_OF_FITPARAMS
-@SCAN_scale_Power  0.5 5 9   true  false
+@SCAN_scale_Power  0.5 5 9   false  false
 @SCAN_Offset_Detuning_cm -2.5 -1 5 false false
 @SCAN_scale_Gamma 0.3 0.6 3   false    false
 @SCAN_Tau_Modif 0.5e-3 2e-3 2 false false
