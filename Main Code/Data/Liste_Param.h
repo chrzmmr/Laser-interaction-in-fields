@@ -16,7 +16,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // so Mol[0] to Mol[Nom_Mol[0]-1]
 @Nom_Mol[0]	Ps
 // It is the number of molecules that are laser cooled.
-@N_Mol[0]  4000
+@N_Mol[0]  100
 @Temp_ini_x[0] 300
 @Temp_ini_y[0] 300
 @Temp_ini_z[0] 300
@@ -81,7 +81,7 @@ double Name_Parameter = params.LocateParam("Name_Parameter")->val
 // A good test is to remove lasers and check Energy conservation
 
 //for t< t_scaling_max
-@dt_dyn_epsilon_param  5e-10
+@dt_dyn_epsilon_param  5e-10 // = 7e-11 for T = 300K and waist = 5e-3
 //for t> t_scaling_max
 // fin du temps.
 //@t_fin  10e-9
